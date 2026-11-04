@@ -1,0 +1,452 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FLOW REALTY x Mask360 | Campaign Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --flame: #F53901;
+    --flame-soft: #FFF0EA;
+    --ink: #111111;
+    --muted: #6B6B6B;
+    --line: #E8E6E1;
+    --bg: #F6F5F2;
+    --card: #FFFFFF;
+    --green: #1F8A4C;
+    --green-soft: #E3F4EA;
+    --amber: #B86A00;
+    --amber-soft: #FFF3DD;
+    --grey-soft: #F0EFEC;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Space Grotesk', system-ui, sans-serif; }
+  a { color: inherit; }
+  .wrap { max-width: 1180px; margin: 0 auto; padding: 24px 20px 64px; }
+
+  /* Header */
+  header { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .brands { display: flex; align-items: center; gap: 14px; }
+  .brands img.agency { height: 34px; }
+  .brands .x { color: var(--muted); font-size: 18px; }
+  .brands img.client { height: 34px; }
+  .brands .client-text { font-weight: 700; letter-spacing: .06em; font-size: 15px; }
+  .meta { display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 13px; }
+  .live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-soft); }
+  .btn { border: 1px solid var(--ink); background: var(--ink); color: #fff; border-radius: 999px; padding: 9px 16px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .btn.ghost { background: transparent; color: var(--ink); }
+  .btn.flame { background: var(--flame); border-color: var(--flame); }
+  .btn:disabled { opacity: .5; cursor: default; }
+
+  .title { margin: 28px 0 6px; font-size: clamp(28px, 4vw, 44px); font-weight: 700; letter-spacing: -.02em; line-height: 1.05; }
+  .title span { color: var(--flame); }
+  .subtitle { color: var(--muted); margin: 0 0 24px; font-size: 15px; }
+
+  /* Nav */
+  nav { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; margin-bottom: 22px; }
+  nav button { flex: none; border: 1px solid var(--line); background: var(--card); color: var(--ink); border-radius: 999px; padding: 9px 16px; font: inherit; font-size: 14px; font-weight: 500; cursor: pointer; }
+  nav button.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+  nav .count { display: inline-block; margin-left: 6px; background: var(--flame); color: #fff; border-radius: 999px; padding: 0 7px; font-size: 11px; }
+
+  /* Cards */
+  .grid { display: grid; gap: 16px; }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+  .g2 { grid-template-columns: 1.3fr 1fr; }
+  @media (max-width: 900px) { .g4 { grid-template-columns: repeat(2, 1fr); } .g2 { grid-template-columns: 1fr; } }
+  @media (max-width: 520px) {
+    .g4 { grid-template-columns: 1fr; }
+    .g4 .hero { grid-column: auto !important; }
+    .hero { gap: 16px; }
+    .ring { width: 96px; height: 96px; }
+    .row.stack { flex-direction: column; gap: 4px; }
+  }
+  .brands img { mix-blend-mode: multiply; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px; }
+  .card h3 { margin: 0 0 14px; font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 600; }
+  .kpi .label { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .kpi .value { font-size: 20px; font-weight: 600; margin-top: 8px; line-height: 1.3; }
+  .hero { display: flex; align-items: center; gap: 24px; background: var(--ink); color: #fff; border: none; }
+  .hero .label { color: #BDBDBD; }
+  .ring { flex: none; width: 120px; height: 120px; }
+  .ring circle { fill: none; stroke-width: 10; }
+  .ring .bg { stroke: #333; }
+  .ring .fg { stroke: var(--flame); stroke-linecap: round; transition: stroke-dashoffset .8s ease; }
+  .ring text { fill: #fff; font: 700 26px 'Space Grotesk', sans-serif; }
+
+  /* Lists */
+  .row { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-top: 1px solid var(--line); align-items: flex-start; }
+  .row:first-of-type { border-top: none; }
+  .row .main { font-weight: 500; }
+  .row .sub { color: var(--muted); font-size: 13px; margin-top: 3px; }
+  .chip { flex: none; display: inline-block; border-radius: 999px; padding: 4px 10px; font-size: 12px; font-weight: 600; background: var(--grey-soft); color: var(--muted); white-space: nowrap; }
+  .chip.green { background: var(--green-soft); color: var(--green); }
+  .chip.amber { background: var(--amber-soft); color: var(--amber); }
+  .chip.flame { background: var(--flame-soft); color: var(--flame); }
+
+  /* Roadmap */
+  .timeline { position: relative; }
+  .phase { display: grid; grid-template-columns: 28px 1fr; gap: 14px; padding-bottom: 18px; }
+  .phase .dot { width: 18px; height: 18px; border-radius: 50%; border: 3px solid var(--line); background: var(--card); margin-top: 2px; position: relative; }
+  .phase .dot.done { background: var(--green); border-color: var(--green); }
+  .phase .dot.active { background: var(--flame); border-color: var(--flame); box-shadow: 0 0 0 5px var(--flame-soft); }
+  .phase .body { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 16px 18px; }
+  .phase .head { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; align-items: center; }
+  .phase .name { font-weight: 700; font-size: 17px; }
+  .phase .dates { color: var(--muted); font-size: 13px; }
+  .phase dl { display: grid; grid-template-columns: 140px 1fr; gap: 6px 14px; margin: 12px 0 0; font-size: 14px; }
+  .phase dt { color: var(--muted); }
+  .phase dd { margin: 0; }
+  @media (max-width: 600px) { .phase dl { grid-template-columns: 1fr; } .phase dt { margin-top: 6px; } }
+
+  /* Deliverables */
+  .filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .filters button { border: 1px solid var(--line); background: var(--card); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; cursor: pointer; }
+  .filters button.active { border-color: var(--flame); color: var(--flame); background: var(--flame-soft); }
+  .group-title { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 22px 0 10px; font-weight: 600; }
+  .dlv { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  @media (max-width: 800px) { .dlv { grid-template-columns: 1fr; } }
+  .item { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .item .top { display: flex; justify-content: space-between; gap: 10px; align-items: flex-start; }
+  .item .name { font-weight: 700; font-size: 16px; }
+  .item .what { color: var(--muted); font-size: 14px; line-height: 1.45; }
+  .bar { height: 6px; background: var(--grey-soft); border-radius: 999px; overflow: hidden; }
+  .bar span { display: block; height: 100%; background: var(--flame); border-radius: 999px; }
+  .item .foot { display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+  .item .actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .item .actions .btn { padding: 7px 12px; font-size: 12px; }
+  .comments { background: var(--bg); border-radius: 12px; padding: 10px 12px; font-size: 13px; white-space: pre-line; line-height: 1.5; }
+
+  /* Inputs + updates tables */
+  .table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  .table th { text-align: left; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); font-weight: 600; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+  .table td { padding: 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .table tr.section td { background: var(--bg); color: var(--flame); font-weight: 700; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; }
+  .scroll { overflow-x: auto; }
+
+  /* Modal */
+  .modal-bg { position: fixed; inset: 0; background: rgba(17,17,17,.45); display: none; align-items: center; justify-content: center; padding: 16px; z-index: 10; }
+  .modal-bg.open { display: flex; }
+  .modal { background: var(--card); border-radius: var(--radius); padding: 22px; width: 100%; max-width: 480px; }
+  .modal h4 { margin: 0 0 4px; font-size: 18px; }
+  .modal p { margin: 0 0 14px; color: var(--muted); font-size: 14px; }
+  .modal label { display: block; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 10px 0 6px; }
+  .modal input, .modal textarea { width: 100%; border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; font: inherit; font-size: 15px; }
+  .modal textarea { min-height: 120px; resize: vertical; }
+  .modal .actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+
+  .toast { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 16px; border-radius: 999px; font-size: 14px; display: none; z-index: 20; }
+  .toast.show { display: block; }
+  .loading { color: var(--muted); padding: 40px 0; text-align: center; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brands">
+      <img class="agency" id="agencyLogo" alt="Mask360">
+      <span class="x">x</span>
+      <span id="clientBrand"></span>
+    </div>
+    <div class="meta">
+      <span class="live-dot" title="Live from the campaign sheet"></span>
+      <span id="fetchedAt">Connecting</span>
+      <button class="btn ghost" id="refreshBtn">Refresh</button>
+    </div>
+  </header>
+
+  <h1 class="title" id="projectTitle">Codename <span>Beverly Hills</span></h1>
+  <p class="subtitle">Live campaign dashboard. SIPANI Group, Nandi Hills. Design, creative and brand film.</p>
+
+  <nav id="nav">
+    <button data-view="overview" class="active">Overview</button>
+    <button data-view="roadmap">Roadmap</button>
+    <button data-view="deliverables">Deliverables <span class="count hidden" id="reviewCount"></span></button>
+    <button data-view="inputs">Inputs from FLOW</button>
+    <button data-view="updates">Updates</button>
+  </nav>
+
+  <div id="loading" class="loading">Loading campaign status</div>
+
+  <section id="view-overview" class="view hidden">
+    <div class="grid g4" style="margin-bottom:16px">
+      <div class="card kpi hero" style="grid-column: span 2">
+        <svg class="ring" viewBox="0 0 120 120">
+          <circle class="bg" cx="60" cy="60" r="50"></circle>
+          <circle class="fg" id="ringFg" cx="60" cy="60" r="50" stroke-dasharray="314.16" stroke-dashoffset="314.16" transform="rotate(-90 60 60)"></circle>
+          <text id="ringText" x="60" y="69" text-anchor="middle">0%</text>
+        </svg>
+        <div>
+          <div class="label">Current phase</div>
+          <div class="value" id="kPhase"></div>
+          <div class="label" style="margin-top:14px">Deliverables</div>
+          <div class="value" id="kDeliv" style="font-size:16px"></div>
+        </div>
+      </div>
+      <div class="card kpi"><div class="label">Next milestone</div><div class="value" id="kNext"></div></div>
+      <div class="card kpi"><div class="label">Waiting on FLOW</div><div class="value" id="kWaiting"></div><div style="margin-top:10px"><button class="btn ghost" data-goto="inputs" style="padding:6px 12px;font-size:12px">See inputs</button></div></div>
+    </div>
+    <div class="grid g2">
+      <div class="card">
+        <h3>Latest updates</h3>
+        <div id="latest"></div>
+        <div style="margin-top:12px"><button class="btn ghost" data-goto="updates" style="padding:6px 12px;font-size:12px">All updates</button></div>
+        <h3 style="margin-top:22px">Key dates</h3>
+        <div id="keyDates"></div>
+      </div>
+      <div class="card">
+        <h3>Needs your review</h3>
+        <div id="needsReview"></div>
+        <h3 style="margin-top:22px">Team</h3>
+        <div id="team"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view hidden">
+    <div class="timeline" id="roadmap"></div>
+  </section>
+
+  <section id="view-deliverables" class="view hidden">
+    <div class="filters" id="filters"></div>
+    <div id="deliverables"></div>
+  </section>
+
+  <section id="view-inputs" class="view hidden">
+    <div class="card scroll">
+      <table class="table" id="inputs"></table>
+    </div>
+  </section>
+
+  <section id="view-updates" class="view hidden">
+    <div class="card" id="updates"></div>
+  </section>
+
+  <footer>
+    <span>Prepared by Mask360. Data reads live from the campaign master sheet.</span>
+    <span>connect@mask360.agency</span>
+  </footer>
+</div>
+
+<div class="modal-bg" id="modal">
+  <div class="modal">
+    <h4 id="modalTitle">Feedback</h4>
+    <p id="modalSub">Your note goes straight to the Mask360 team.</p>
+    <label for="fbName">Your name</label>
+    <input id="fbName" maxlength="60" placeholder="e.g. Nikita">
+    <div id="fbTextWrap">
+      <label for="fbText">Feedback</label>
+      <textarea id="fbText" maxlength="1000" placeholder="What should we change?"></textarea>
+    </div>
+    <div class="actions">
+      <button class="btn ghost" id="modalCancel">Cancel</button>
+      <button class="btn flame" id="modalSend">Send</button>
+    </div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+  var CONFIG = { agencyLogo: '', clientLogo: '', clientName: 'FLOW REALTY', projectName: 'Codename Beverly Hills' };
+  try { CONFIG = JSON.parse('<?!= config ?>'); } catch (e) { /* preview mode */ }
+
+  var IS_LIVE = typeof google !== 'undefined' && google.script && google.script.run;
+  var DATA = null;
+  var currentView = 'overview';
+  var currentFilter = 'All';
+  var modalCtx = null;
+
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function $(id) { return document.getElementById(id); }
+  function chipClass(s) {
+    s = String(s || '');
+    if (/^(Delivered|Approved|Done|Received)$/.test(s)) return 'green';
+    if (/^(In progress|Partial)$/.test(s)) return 'amber';
+    if (/With FLOW/.test(s)) return 'flame';
+    return '';
+  }
+  function toast(msg) {
+    var t = $('toast'); t.textContent = msg; t.classList.add('show');
+    setTimeout(function () { t.classList.remove('show'); }, 2600);
+  }
+  function safeUrl(u) { return /^https?:\/\//i.test(u || '') ? u : ''; }
+
+  // Branding
+  (function () {
+    var a = $('agencyLogo');
+    if (CONFIG.agencyLogo) a.src = CONFIG.agencyLogo; else a.replaceWith(Object.assign(document.createElement('strong'), { textContent: 'm360.' }));
+    var c = $('clientBrand');
+    if (CONFIG.clientLogo) { var img = document.createElement('img'); img.className = 'client'; img.alt = CONFIG.clientName; img.src = CONFIG.clientLogo; c.appendChild(img); }
+    else { c.className = 'client-text'; c.textContent = CONFIG.clientName; }
+  })();
+
+  // Navigation
+  function show(view) {
+    currentView = view;
+    document.querySelectorAll('#nav button').forEach(function (b) { b.classList.toggle('active', b.dataset.view === view); });
+    document.querySelectorAll('.view').forEach(function (v) { v.classList.toggle('hidden', v.id !== 'view-' + view || !DATA); });
+    try { history.replaceState(null, '', '#' + view); } catch (e) {}
+  }
+  $('nav').addEventListener('click', function (e) { var b = e.target.closest('button'); if (b) show(b.dataset.view); });
+  document.addEventListener('click', function (e) { var g = e.target.closest('[data-goto]'); if (g) show(g.dataset.goto); });
+
+  // Render
+  function render(d) {
+    DATA = d;
+    $('loading').classList.add('hidden');
+    $('fetchedAt').textContent = 'Live. Synced ' + d.fetchedAt;
+
+    var pct = parseInt(d.status.progress, 10) || 0;
+    $('ringFg').style.strokeDashoffset = 314.16 * (1 - pct / 100);
+    $('ringText').textContent = pct + '%';
+    $('kPhase').textContent = d.status.phase;
+    $('kDeliv').textContent = d.status.deliverables;
+    $('kNext').textContent = d.status.nextMilestone;
+    $('kWaiting').textContent = String(d.status.waitingOnFlow || '').replace(/\s*\(see tab \d+\)/i, '');
+
+    $('latest').innerHTML = d.updates.slice(0, 3).map(function (u) {
+      return '<div class="row"><div><div class="main">' + esc(u.update) + '</div><div class="sub">' + esc(u.date) + (u.owner ? ', ' + esc(u.owner) : '') + '</div></div></div>';
+    }).join('') || '<div class="sub" style="color:var(--muted)">No updates yet.</div>';
+
+    $('keyDates').innerHTML = d.keyDates.map(function (k) {
+      return '<div class="row"><div><div class="main">' + esc(k.milestone) + '</div><div class="sub">' + esc(k.date) + '</div></div><span class="chip ' + chipClass(k.status) + '">' + esc(k.status) + '</span></div>';
+    }).join('');
+
+    var review = d.deliverables.filter(function (x) { return x.stage === 'With FLOW for review'; });
+    $('reviewCount').textContent = review.length;
+    $('reviewCount').classList.toggle('hidden', !review.length);
+    $('needsReview').innerHTML = review.length ? review.map(function (x) {
+      return '<div class="row"><div><div class="main">' + esc(x.name) + '</div><div class="sub">Due ' + esc(x.due) + '</div></div><button class="btn flame" style="padding:6px 12px;font-size:12px" data-goto="deliverables">Review</button></div>';
+    }).join('') : '<div class="sub" style="color:var(--muted)">Nothing waiting on you right now.</div>';
+
+    $('team').innerHTML = d.team.map(function (t) {
+      return '<div class="row stack"><div><div class="main">' + esc(t.name) + '</div><div class="sub">' + esc(t.role) + ', ' + esc(t.company) + '</div></div>' +
+        (t.email && t.email.indexOf('@') > 0 ? '<a class="sub" href="mailto:' + esc(t.email) + '">' + esc(t.email) + '</a>' : '<span class="sub">' + esc(t.email) + '</span>') + '</div>';
+    }).join('');
+
+    $('roadmap').innerHTML = d.roadmap.map(function (p) {
+      var cls = p.status === 'Done' ? 'done' : (p.status === 'In progress' ? 'active' : '');
+      return '<div class="phase"><div class="dot ' + cls + '"></div><div class="body"><div class="head"><div><div class="name">' + esc(p.phase) + '</div><div class="dates">' + esc(p.dates) + '</div></div><span class="chip ' + chipClass(p.status) + '">' + esc(p.status) + '</span></div>' +
+        '<dl><dt>What happens</dt><dd>' + esc(p.happens) + '</dd><dt>FLOW receives</dt><dd>' + esc(p.receives) + '</dd><dt>We need from FLOW</dt><dd>' + esc(p.needs) + '</dd></dl></div></div>';
+    }).join('');
+
+    renderDeliverables();
+
+    var rows = '<tr><th>#</th><th>What we need</th><th>Detail</th><th>Used for</th><th>Needed by</th><th>Status</th></tr>';
+    var lastSection = '';
+    d.inputs.forEach(function (i) {
+      if (i.section !== lastSection) { rows += '<tr class="section"><td colspan="6">' + esc(i.section) + '</td></tr>'; lastSection = i.section; }
+      rows += '<tr><td>' + esc(i.num) + '</td><td><strong>' + esc(i.item) + '</strong></td><td>' + esc(i.detail) + '</td><td>' + esc(i.usedFor) + '</td><td>' + esc(i.due) + '</td><td><span class="chip ' + chipClass(i.status) + '">' + esc(i.status) + '</span></td></tr>';
+    });
+    $('inputs').innerHTML = rows;
+
+    $('updates').innerHTML = d.updates.map(function (u) {
+      return '<div class="row"><div><div class="main">' + esc(u.update) + '</div><div class="sub">Next: ' + esc(u.next) + '</div></div><div style="text-align:right;flex:none"><div class="chip">' + esc(u.date) + '</div><div class="sub">' + esc(u.owner) + '</div></div></div>';
+    }).join('');
+
+    show(currentView);
+  }
+
+  function renderDeliverables() {
+    var d = DATA;
+    var phases = [];
+    d.deliverables.forEach(function (x) { if (phases.indexOf(x.phase) < 0) phases.push(x.phase); });
+    var filters = ['All', 'Needs review'].concat(phases);
+    $('filters').innerHTML = filters.map(function (f) {
+      return '<button class="' + (f === currentFilter ? 'active' : '') + '" data-filter="' + esc(f) + '">' + esc(f) + '</button>';
+    }).join('');
+
+    var list = d.deliverables.filter(function (x) {
+      if (currentFilter === 'All') return true;
+      if (currentFilter === 'Needs review') return x.stage === 'With FLOW for review';
+      return x.phase === currentFilter;
+    });
+
+    var html = '';
+    var groups = currentFilter === 'All' ? phases : [currentFilter];
+    groups.forEach(function (g) {
+      var items = currentFilter === 'All' ? list.filter(function (x) { return x.phase === g; }) : list;
+      if (!items.length) return;
+      html += '<div class="group-title">' + esc(g) + '</div><div class="dlv">';
+      html += items.map(function (x) {
+        var link = safeUrl(x.link);
+        return '<div class="item"><div class="top"><div class="name">' + esc(x.name) + '</div><span class="chip ' + chipClass(x.stage) + '">' + esc(x.stage) + '</span></div>' +
+          '<div class="what">' + esc(x.what) + '</div>' +
+          '<div class="bar"><span style="width:' + Math.round(x.score * 100) + '%"></span></div>' +
+          (x.comments ? '<div class="comments">' + esc(x.comments) + '</div>' : '') +
+          '<div class="foot"><span>Due ' + esc(x.due) + '</span><div class="actions">' +
+          (link ? '<a class="btn ghost" href="' + esc(link) + '" target="_blank" rel="noopener">Open</a>' : '') +
+          '<button class="btn ghost" data-fb="' + esc(x.num) + '">Give feedback</button>' +
+          (x.stage === 'With FLOW for review' ? '<button class="btn flame" data-approve="' + esc(x.num) + '">Approve</button>' : '') +
+          '</div></div></div>';
+      }).join('');
+      html += '</div>';
+    });
+    $('deliverables').innerHTML = html || '<div class="card">Nothing here right now.</div>';
+  }
+
+  $('filters').addEventListener('click', function (e) { var b = e.target.closest('button'); if (!b) return; currentFilter = b.dataset.filter; renderDeliverables(); });
+
+  // Feedback + approval
+  function findItem(num) { return DATA.deliverables.filter(function (x) { return String(x.num) === String(num); })[0]; }
+  function openModal(kind, num) {
+    var it = findItem(num); if (!it) return;
+    modalCtx = { kind: kind, num: num };
+    $('modalTitle').textContent = (kind === 'approve' ? 'Approve: ' : 'Feedback: ') + it.name;
+    $('modalSub').textContent = kind === 'approve' ? 'This marks the deliverable as approved in the campaign sheet.' : 'Your note goes straight to the Mask360 team and the campaign sheet.';
+    $('fbTextWrap').classList.toggle('hidden', kind === 'approve');
+    $('modalSend').textContent = kind === 'approve' ? 'Approve' : 'Send';
+    try { $('fbName').value = localStorage.getItem('fbName') || ''; } catch (e) {}
+    $('fbText').value = '';
+    $('modal').classList.add('open');
+  }
+  function closeModal() { $('modal').classList.remove('open'); modalCtx = null; }
+  document.addEventListener('click', function (e) {
+    var f = e.target.closest('[data-fb]'); if (f) openModal('feedback', f.dataset.fb);
+    var a = e.target.closest('[data-approve]'); if (a) openModal('approve', a.dataset.approve);
+  });
+  $('modalCancel').onclick = closeModal;
+  $('modal').addEventListener('click', function (e) { if (e.target.id === 'modal') closeModal(); });
+  $('modalSend').onclick = function () {
+    if (!modalCtx) return;
+    var name = $('fbName').value.trim();
+    var text = $('fbText').value.trim();
+    if (!name) { toast('Please add your name'); return; }
+    if (modalCtx.kind === 'feedback' && !text) { toast('Please write your feedback'); return; }
+    try { localStorage.setItem('fbName', name); } catch (e) {}
+    var btn = $('modalSend'); btn.disabled = true;
+    var fail = function (err) { btn.disabled = false; toast(err && err.message ? err.message : 'Could not send. Try again.'); };
+    if (!IS_LIVE) { btn.disabled = false; closeModal(); toast('Preview mode: not saved'); return; }
+    var kind = modalCtx.kind;
+    var r = google.script.run.withSuccessHandler(function (d) { btn.disabled = false; closeModal(); render(d); toast(kind === 'approve' ? 'Approved' : 'Sent. Thank you.'); }).withFailureHandler(fail);
+    if (kind === 'approve') r.approveDeliverable(modalCtx.num, name); else r.submitFeedback(modalCtx.num, name, text);
+  };
+
+  // Data loading
+  function load() {
+    $('refreshBtn').disabled = true;
+    if (IS_LIVE) {
+      google.script.run
+        .withSuccessHandler(function (d) { $('refreshBtn').disabled = false; render(d); })
+        .withFailureHandler(function (err) { $('refreshBtn').disabled = false; $('fetchedAt').textContent = 'Could not sync. Retrying.'; })
+        .getData();
+    } else if (window.PREVIEW_DATA) {
+      $('refreshBtn').disabled = false; render(window.PREVIEW_DATA);
+    }
+  }
+  $('refreshBtn').onclick = load;
+  var hash = (location.hash || '').replace('#', '');
+  if (['overview', 'roadmap', 'deliverables', 'inputs', 'updates'].indexOf(hash) >= 0) currentView = hash;
+  load();
+  setInterval(function () { if (!document.hidden && !modalCtx) load(); }, 60000);
+</script>
+</body>
+</html>
