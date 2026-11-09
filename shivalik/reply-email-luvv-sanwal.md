@@ -4,21 +4,13 @@
 
 Hi Luvv,
 
-Thank you for your note, and my apologies for the slow reply. Our team was out of office last week, and I wanted to come back to you with a full proposal.
+Thank you for your note, and apologies for the delay in getting back to you. Our office was closed for Diwali, and we wanted to come back with a complete proposal.
 
-Please find it attached. We studied Mr Shah's website, SHIVALIK GROUP's website, his podcast appearances and his public record. We built the plan on the thesis he already shares on chitrakshah.com:
+Please find it attached. It sets out how we would approach Mr Shah's positioning, his content, where it goes, how we measure progress, and the commercials. Page 2 sums up the whole proposal on one page.
 
-**CHITRAK SHAH is building the operating system for Indian real estate. Ahmedabad is where he proves it.**
+Please take a look and let us know your thoughts. We would be happy to set up a call to walk you through it.
 
-Page 2 answers each of your five asks on one page:
-
-- **Strategy:** the positioning, the audiences and how he should sound
-- **Content approach:** four pillars taken from his "Future I See", plus a monthly show he hosts
-- **Distribution plan:** one job for each channel, and a twelve-month roadmap
-- **Measurable outcomes:** what we track every month, plus the output we commit to
-- **Commercials:** a one-time setup and a monthly retainer, with every line item spelled out
-
-We would be glad to walk you through it on a call. Would any time this Thursday or Friday suit you?
+Wishing you and the SHIVALIK team a very happy Diwali and a prosperous new year.
 
 Warm regards,
 Prarthana Jetly
