@@ -8,190 +8,213 @@
 @font-face{font-family:"SG";src:url(sg-ext.woff2) format("woff2");font-weight:300 700;unicode-range:U+0100-02AF,U+20A0-20C0;}
 @font-face{font-family:"JBM";src:url(jbm.ttf);}
 @page{size:A4;margin:0}
-:root{--ink:#141312;--ink2:#1e1c1b;--paper:#ECE8E1;--card:#E1DCD4;--flame:#F53901;--flame-d:#FF6A33;--muted:#6f6a64;--muted-d:#a39d96;--line:#cfc8bf;--line-d:#3a3634}
+:root{--ink:#141312;--ink2:#1f1d1c;--paper:#FFFFFF;--card:#F3F2F0;--flame:#F53901;--flame-d:#FF6A33;--muted:#6f6a64;--muted-d:#a39d96;--line:#E3E1DE;--line-d:#3a3634}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{background:#888}
 body{font-family:"SG","DejaVu Sans",sans-serif;font-weight:300;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-.page{width:210mm;height:297mm;position:relative;overflow:hidden;padding:20mm 17mm 16mm;page-break-after:always;display:flex;flex-direction:column}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;padding:18mm 17mm 14mm;page-break-after:always;display:flex;flex-direction:column}
 .dark{background:var(--ink);color:#f2eee8}
 .light{background:var(--paper);color:var(--ink)}
-.mono{font-family:"JBM",monospace;font-weight:400;text-transform:uppercase;letter-spacing:.32em;font-size:6.6pt}
-.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12mm}
-.top img{height:7.5mm}
+.mono{font-family:"JBM",monospace;font-weight:400;text-transform:uppercase;letter-spacing:.3em;font-size:6.5pt}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10mm}
+.logos{display:flex;align-items:center;gap:3.5mm}
+.logos .m{height:7mm}
+.logos .x{font-size:9pt;opacity:.5}
+.logos .s{height:6.2mm}
 .dark .mono{color:var(--muted-d)} .light .mono{color:var(--muted)}
-h1{font-weight:300;font-size:29pt;line-height:1.08;letter-spacing:-.01em;margin-bottom:4mm}
+h1{font-weight:300;font-size:28pt;line-height:1.08;letter-spacing:-.01em;margin-bottom:3.5mm}
 h1 em,.fl{font-style:normal;color:var(--flame)}
 .dark h1 em,.dark .fl{color:var(--flame-d)}
-.lede{font-size:10pt;line-height:1.5;margin-bottom:6mm;max-width:165mm}
+.lede{font-size:9.8pt;line-height:1.5;margin-bottom:5.5mm;max-width:168mm}
 .dark .lede{color:#d9d4cd}
-.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:.5pt solid var(--line);padding-top:3mm;font-family:"JBM",monospace;font-size:6.3pt;letter-spacing:.04em}
+.foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;border-top:.5pt solid var(--line);padding-top:3mm;font-family:"JBM",monospace;font-size:6.2pt;letter-spacing:.04em}
 .dark .foot{border-color:var(--line-d);color:var(--muted-d)}
 .light .foot{color:var(--muted)}
 table{width:100%;border-collapse:collapse}
-th{text-align:left;font-family:"JBM",monospace;font-weight:400;font-size:6.3pt;letter-spacing:.3em;text-transform:uppercase;padding:0 3mm 2.2mm 0;border-bottom:.8pt solid currentColor}
+th{text-align:left;font-family:"JBM",monospace;font-weight:400;font-size:6.1pt;letter-spacing:.26em;text-transform:uppercase;padding:0 3mm 2mm 0;border-bottom:.8pt solid currentColor}
 .light th{color:var(--muted);border-color:var(--ink)} .dark th{color:var(--muted-d);border-color:#f2eee8}
-td{vertical-align:top;padding:2.6mm 3mm 2.6mm 0;font-size:8.3pt;line-height:1.42;border-bottom:.5pt solid var(--line)}
+td{vertical-align:top;padding:2.4mm 3mm 2.4mm 0;font-size:8.1pt;line-height:1.42;border-bottom:.5pt solid var(--line)}
 .dark td{border-color:var(--line-d);color:#d9d4cd}
-td b{font-weight:500;color:inherit}
+td b{font-weight:500}
 .light td b{color:var(--ink)} .dark td b{color:#fff}
-td small{display:block;font-size:7pt;color:var(--muted);margin-top:.6mm}
+td small{display:block;font-size:7pt;color:var(--muted);margin-top:.6mm;line-height:1.4}
 .dark td small{color:var(--muted-d)}
 .r{text-align:right;white-space:nowrap}
-.qty{font-family:"JBM",monospace;font-size:7pt;white-space:nowrap}
-.cards{display:grid;gap:4mm}
-.card{border-radius:5mm;padding:6mm 6mm 5.5mm}
+.qty{font-family:"JBM",monospace;font-size:6.9pt}
+.code{font-family:"JBM",monospace;font-size:7pt;color:var(--flame);font-weight:400}
+.cards{display:grid;gap:3.5mm}
+.card{border-radius:5mm;padding:5.5mm 5.5mm 5mm}
 .light .card{background:var(--card)}
 .dark .card{background:var(--ink2)}
 .card.inv{background:var(--ink);color:#f2eee8}
-.card .mono{display:block;margin-bottom:4mm}
-.card .big{font-size:18pt;font-weight:300;margin-bottom:2mm}
-.card p{font-size:7.8pt;line-height:1.45}
+.card .mono{display:block;margin-bottom:3.5mm}
+.card.inv .mono{color:var(--muted-d)}
+.card .big{font-size:17pt;font-weight:300;margin-bottom:1.8mm}
+.card p{font-size:7.7pt;line-height:1.45}
 .light .card p{color:#4c4844} .dark .card p,.card.inv p{color:var(--muted-d)}
-.sum td{border:none;padding-top:3.5mm;font-size:10.5pt;font-weight:500}
+.sum td{border-bottom:none;padding-top:3mm;font-size:10pt;font-weight:500;color:var(--ink)}
 .sum .r{color:var(--flame)}
-/* cover */
+.callout{border-radius:5mm;background:var(--ink);color:#f2eee8;padding:5.5mm 7mm;font-size:11pt;line-height:1.42}
+.callout .mono{display:block;margin-bottom:2.5mm;color:var(--muted-d)}
+.sec{margin:5mm 0 2.5mm;display:block}
 .cover{padding:0}
-.cover .art{position:absolute;inset:0}
-.cover .inner{position:relative;z-index:2;height:100%;padding:20mm 17mm 16mm;display:flex;flex-direction:column}
-.cover h1{font-size:35pt;line-height:1.04;margin-bottom:6mm}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;border-top:.5pt solid var(--line-d);border-bottom:.5pt solid var(--line-d);padding:5mm 0;margin-top:6mm}
-.stats div b{display:block;font-weight:300;font-size:15pt;margin-bottom:1.5mm;color:#fff}
+.cover .photo{position:absolute;left:0;top:0;width:100%;height:178mm;object-fit:cover;object-position:50% 40%}
+.cover .shade{position:absolute;left:0;top:0;width:100%;height:180mm;background:linear-gradient(180deg,rgba(20,19,18,.72) 0%,rgba(20,19,18,.15) 22%,rgba(20,19,18,0) 55%,rgba(20,19,18,.85) 90%,#141312 100%)}
+.cover .inner{position:relative;z-index:2;height:100%;padding:16mm 17mm 14mm;display:flex;flex-direction:column}
+.cover h1{font-size:34pt;line-height:1.05;margin-bottom:5mm}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:5mm;border-top:.5pt solid var(--line-d);border-bottom:.5pt solid var(--line-d);padding:4.5mm 0;margin-top:5mm}
+.stats div b{display:block;font-weight:300;font-size:14pt;margin-bottom:1.3mm;color:#fff}
 .stats div span{font-size:7pt;line-height:1.4;color:var(--muted-d)}
-.cover .foot{border:none;padding-top:4mm;margin-top:4mm}
+.cover .foot{border:none;padding-top:4mm;margin-top:3mm}
 .link{color:var(--flame-d);border-bottom:.5pt solid var(--flame-d)}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:0 9mm}
-.terms div{border-bottom:.5pt solid var(--line-d);padding:2.6mm 0;font-size:7.9pt;line-height:1.48;color:#cfcac3}
+.terms div{border-bottom:.5pt solid var(--line-d);padding:2.4mm 0;font-size:7.8pt;line-height:1.48;color:#cfcac3}
 .terms b{font-weight:500;color:#fff}
-.obs{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:5mm}
-.obs .card .n{font-family:"JBM",monospace;color:var(--flame);font-size:7pt;letter-spacing:.2em;display:block;margin-bottom:2.5mm}
-.obs .card h3{font-weight:500;font-size:10pt;margin-bottom:2mm}
-.callout{margin-top:5mm;border-radius:5mm;background:var(--ink);color:#f2eee8;padding:6mm 7mm;font-size:11.5pt;line-height:1.42}
-.callout .mono{display:block;margin-bottom:3mm;color:var(--muted-d)}
-.statement{font-size:19pt;line-height:1.28;font-weight:300;margin:1mm 0 6mm;color:#fff}
-.logic{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:6mm}
-.logic div{border-top:.8pt solid var(--flame-d);padding-top:3mm;font-size:7.9pt;line-height:1.48;color:#cfcac3}
-.logic b{display:block;color:#fff;font-weight:500;font-size:9pt;margin-bottom:1.5mm}
+.obs{display:grid;grid-template-columns:1fr 1fr;gap:3.5mm}
+.obs .card .n{font-family:"JBM",monospace;color:var(--flame);font-size:7pt;letter-spacing:.2em;display:block;margin-bottom:2mm}
+.obs .card h3{font-weight:500;font-size:9.6pt;margin-bottom:1.6mm}
+.statement{font-size:18.5pt;line-height:1.28;font-weight:300;margin:1mm 0 5.5mm;color:#fff}
+.logic{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm;margin-bottom:5mm}
+.logic div{border-top:.8pt solid var(--flame-d);padding-top:3mm;font-size:7.8pt;line-height:1.48;color:#cfcac3}
+.logic b{display:block;color:#fff;font-weight:500;font-size:8.8pt;margin-bottom:1.4mm}
 .phase .mono{color:var(--flame-d)!important}
-.phase h3{font-weight:400;font-size:13pt;margin-bottom:3mm;color:#fff}
+.phase h3{font-weight:400;font-size:13pt;margin-bottom:2.5mm;color:#fff}
 .phase ul{list-style:none}
-.phase li{font-size:7.8pt;line-height:1.45;color:#cfcac3;padding:1.4mm 0;border-top:.5pt solid var(--line-d)}
+.phase li{font-size:7.7pt;line-height:1.45;color:#cfcac3;padding:1.3mm 0;border-top:.5pt solid var(--line-d)}
 .grid6{grid-template-columns:repeat(3,1fr)}
-.grid6 .card .big{font-size:20pt}
-.sec{margin:5mm 0 2.5mm;display:block}
+.ws{margin-bottom:3.2mm}
+.ws h3{display:flex;justify-content:space-between;align-items:baseline;font-weight:500;font-size:10pt;padding-bottom:1.8mm;border-bottom:.8pt solid var(--ink)}
+.ws h3 span{font-family:"JBM",monospace;font-size:6.2pt;letter-spacing:.24em;color:var(--muted);font-weight:400;text-transform:uppercase}
+.ws td small.v{margin:0;color:#3d3a37}
 </style>
 </head>
 <body>
 
 <!-- 1 COVER -->
 <section class="page dark cover">
-  <svg class="art" viewBox="0 0 210 297" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <radialGradient id="glow" cx="78%" cy="30%" r="55%">
-        <stop offset="0" stop-color="#F53901" stop-opacity=".38"/>
-        <stop offset=".55" stop-color="#F53901" stop-opacity=".06"/>
-        <stop offset="1" stop-color="#141312" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <rect width="210" height="297" fill="#141312"/>
-    <rect width="210" height="297" fill="url(#glow)"/>
-    <g fill="none" stroke="#F53901" stroke-width=".35" opacity=".85">
-      <circle cx="164" cy="88" r="22"/>
-      <circle cx="164" cy="88" r="38" opacity=".7"/>
-      <circle cx="164" cy="88" r="56" opacity=".5"/>
-      <circle cx="164" cy="88" r="76" opacity=".32"/>
-      <circle cx="164" cy="88" r="98" opacity=".18"/>
-    </g>
-    <circle cx="164" cy="88" r="3.2" fill="#F53901"/>
-    <g fill="#f2eee8" opacity=".9" font-family="JBM, monospace" font-size="2.6" letter-spacing=".9">
-      <circle cx="164" cy="50" r="1.1"/><text x="167.5" y="51">BUILDS</text>
-      <circle cx="131" cy="107" r="1.1"/><text x="104" y="108">FUNDS</text>
-      <circle cx="197" cy="107" r="1.1"/><text x="182" y="114">TEACHES</text>
-      <circle cx="109" cy="124" r="1.1"/><text x="83" y="128">LEADS</text>
-    </g>
-  </svg>
+  <img class="photo" src="cover.png" alt="">
+  <div class="shade"></div>
   <div class="inner">
-    <div class="top"><img src="logo-white.png" alt="m360."><span class="mono">Founder positioning proposal</span></div>
+    <div class="top"><div class="logos"><img class="m" src="logo-white.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-white.svg" alt="SHIVALIK"></div><span class="mono" style="color:#e9e4dd">Founder positioning proposal</span></div>
     <div style="margin-top:auto">
-      <div class="mono" style="margin-bottom:5mm">For SHIVALIK GROUP . CHITRAK SHAH, Founder and MD</div>
-      <h1>Ahmedabad's next decade,<br><em>in his own voice.</em></h1>
-      <p class="lede" style="font-size:10.5pt">A twelve-month plan to make CHITRAK SHAH the clearest voice on how Ahmedabad and GIFT CITY grow: one positioning line, one monthly flagship show, a steady rhythm across Instagram, LinkedIn and YouTube, and a press and stage plan. By the team behind work for LODHA, SOBHA and RUSTOMJEE.</p>
+      <div class="mono" style="margin-bottom:4.5mm">For SHIVALIK GROUP . CHITRAK SHAH, Founder and MD</div>
+      <h1>The face and voice of<br><em>a new way to build.</em></h1>
+      <p class="lede" style="font-size:10.2pt">A twelve-month plan to make CHITRAK SHAH the founder India's real estate industry listens to: one positioning line, a monthly show he hosts, a steady rhythm on Instagram, LinkedIn and YouTube, and a press and stage plan. By the team behind work for LODHA, SOBHA and RUSTOMJEE.</p>
       <div class="stats">
         <div><b>1 line</b><span>The positioning every post answers to</span></div>
-        <div><b>1 show</b><span>A monthly long-form episode, cut into 8 reels</span></div>
+        <div><b>1 show</b><span>A monthly episode he hosts, cut into 8 reels</span></div>
         <div><b>30 pieces</b><span>Of content a month across four channels</span></div>
-        <div><b>12 months</b><span>Retainer, reviewed every quarter</span></div>
+        <div><b>12 months</b><span>Retainer after a four-week setup</span></div>
       </div>
       <div class="foot"><span>Prepared for SHIVALIK GROUP . 9 November 2026</span><span class="link">mask360.work</span></div>
     </div>
   </div>
 </section>
 
-<!-- 2 WHAT WE SEE -->
+<!-- 2 AT A GLANCE -->
 <section class="page light">
-  <div class="top"><img src="logo-black.png" alt="m360."><span class="mono">01 . What we see</span></div>
-  <h1>A strong record,<br><em>told in pieces.</em></h1>
-  <p class="lede">We studied his public record: his website and Instagram, his podcast and video appearances, press coverage and industry profiles. The substance is there. The story is spread thin.</p>
+  <div class="top"><div class="logos"><img class="m" src="logo-black.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-black.svg" alt="SHIVALIK"></div><span class="mono">At a glance</span></div>
+  <h1>The proposal<br><em>on one page.</em></h1>
+  <p class="lede">You asked for five things. Here is our answer to each, and the page where you will find the detail.</p>
 
   <table>
-    <tr><th style="width:24%">The record</th><th>What it shows</th></tr>
-    <tr><td><b>1998 and 2001</b></td><td>Starts with his father as S.N. DEVELOPERS; the SHIVALIK brand follows in 2001.</td></tr>
-    <tr><td><b>75+ projects</b></td><td>Over 15 million sq ft of real estate delivered across Ahmedabad.</td></tr>
-    <tr><td><b>GIFT CITY</b></td><td>SKYVIEW, CURV and TROPHY, with CURV set to be Gujarat's first twisted building.</td></tr>
-    <tr><td><b>SIRE, 2023</b></td><td>Founds SHIVALIK INSTITUTE OF REAL ESTATE to close the industry's skill gap.</td></tr>
-    <tr><td><b>The fund, 2024</b></td><td>SHIVALIK INVESTMENT FUND, a Category II AIF, closes 50% of its ₹150 Cr target in its first close.</td></tr>
-    <tr><td><b>Industry voice</b></td><td>Past Chairman, CREDAI AHMEDABAD; guest on SPEAKING REAL ESTATE, TREC CONVERSATIONS and WHY AHMEDABAD.</td></tr>
+    <tr><th style="width:22%">You asked for</th><th>Our answer</th><th class="r">Page</th></tr>
+    <tr><td><b>Strategy and positioning</b></td><td>One line built on his own thesis: <b>CHITRAK SHAH is building the operating system for Indian real estate, and Ahmedabad is where he proves it.</b></td><td class="r qty">04</td></tr>
+    <tr><td><b>Content approach</b></td><td>Four content pillars taken from his own "Future I See": People, Asset, Capital and Territories. A monthly show he hosts. 30 pieces of content a month.</td><td class="r qty">05</td></tr>
+    <tr><td><b>Distribution plan</b></td><td>Each channel gets one job: Instagram for reach, LinkedIn for authority, YouTube for the show, his website for the record, press and stages for outside proof.</td><td class="r qty">06</td></tr>
+    <tr><td><b>Measurable outcomes</b></td><td>Five goals tracked every month against a baseline we record in setup. Fixed output we commit to: 12 episodes, 96 reels, 96 Instagram posts, 144 LinkedIn posts.</td><td class="r qty">07</td></tr>
+    <tr><td><b>Commercials</b></td><td>₹4,20,000 one-time setup, then ₹4,60,000 a month for twelve months. Every rupee is mapped to a line item on pages 08 and 09.</td><td class="r qty">08 . 09</td></tr>
   </table>
 
-  <div class="obs">
-    <div class="card"><span class="n">01</span><h3>Five roles, no single line</h3><p>Developer, fund manager, educator, industry leader and GIFT CITY builder each tell their own story. A first-time reader cannot say in one sentence what he stands for.</p></div>
-    <div class="card"><span class="n">02</span><h3>His best thinking sits on other channels</h3><p>His sharpest views on Ahmedabad and GIFT CITY live in podcast episodes hosted by others. His own pages do not capture or reuse them.</p></div>
-    <div class="card"><span class="n">03</span><h3>The public record disagrees with itself</h3><p>Profiles call him founder in some places and co-founder in others, with different dates and CREDAI titles. For an investor, search is the first meeting.</p></div>
-    <div class="card"><span class="n">04</span><h3>Every audience gets the same post</h3><p>Fund investors, homebuyers, NRI buyers, young professionals and policymakers each need their own reason to follow him.</p></div>
+  <span class="mono sec" style="margin-top:7mm">In short</span>
+  <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+    <div class="card inv"><span class="mono">What it costs</span><div class="big">₹4,60,000</div><p>A month, plus GST, after a ₹4,20,000 setup. Year-one fees: ₹59,40,000.</p></div>
+    <div class="card"><span class="mono">What you get</span><div class="big">30 pieces</div><p>Of content a month: 1 episode, 8 reels, 8 Instagram posts, 12 LinkedIn posts, 1 article.</p></div>
+    <div class="card"><span class="mono">How long</span><div class="big">4 wks + 12 mo</div><p>Four weeks of setup, then twelve months of retainer, reviewed every quarter.</p></div>
   </div>
 
-  <div class="callout"><span class="mono">The opportunity</span>Everyone in Gujarat real estate is asking where Ahmedabad goes next. He has spent 28 years answering that question in concrete. <span class="fl" style="color:var(--flame-d)">This plan gives the answer one clear voice.</span></div>
-
-  <div class="foot"><span>Sources: SHIVALIK GROUP, press coverage 2023 to 2025, podcast and industry profiles.</span><span>02</span></div>
+  <div class="cards" style="grid-template-columns:repeat(2,1fr);margin-top:3.5mm">
+    <div class="card"><span class="mono">What we need from Mr Shah</span><p style="font-size:8.6pt;color:var(--ink)">One shoot day and one 30-minute review a month.</p></div>
+    <div class="card"><span class="mono">What we need from SHIVALIK</span><p style="font-size:8.6pt;color:var(--ink)">One named approver and access to his channels and analytics.</p></div>
+  </div>
+  <div class="foot"><span>Mask360 . Founder positioning for CHITRAK SHAH</span><span>02</span></div>
 </section>
 
-<!-- 3 POSITIONING -->
-<section class="page dark">
-  <div class="top"><img src="logo-white.png" alt="m360."><span class="mono">02 . The positioning</span></div>
-  <h1>One line every post<br><em>answers to.</em></h1>
-  <div class="mono" style="margin:3mm 0 3mm">The strategy statement</div>
-  <p class="statement">CHITRAK SHAH is the builder of Ahmedabad's next decade. <span class="fl">He builds it, funds it and trains the people who will run it.</span></p>
-
-  <div class="logic">
-    <div><b>One idea from five roles</b>SHIVALIK GROUP, the fund, SIRE, GIFT CITY and CREDAI each become proof of the same promise.</div>
-    <div><b>Owned by the record</b>Twenty-eight years, 75+ projects and three GIFT CITY towers make the claim easy to believe.</div>
-    <div><b>It keeps growing</b>Every handover, fund close and SIRE batch adds a new chapter, so the content never runs dry.</div>
+<!-- 3 WHAT WE SEE -->
+<section class="page light">
+  <div class="top"><div class="logos"><img class="m" src="logo-black.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-black.svg" alt="SHIVALIK"></div><span class="mono">01 . What we see</span></div>
+  <div style="display:grid;grid-template-columns:1fr 46mm;gap:6mm;align-items:end">
+    <div>
+      <h1>A strong record and a sharp thesis,<br><em>told in pieces.</em></h1>
+      <p class="lede" style="margin-bottom:4mm">We studied chitrakshah.com, shivalikgroup.com, his podcast and video appearances, press coverage and industry profiles. The substance is all there.</p>
+    </div>
+    <img src="chitrak.png" style="width:46mm;height:52mm;object-fit:cover;object-position:50% 8%;border-radius:5mm" alt="CHITRAK SHAH">
   </div>
 
-  <div style="display:grid;grid-template-columns:78mm 1fr;gap:7mm;align-items:center">
-    <svg viewBox="0 0 160 150" xmlns="http://www.w3.org/2000/svg" style="width:78mm">
-      <g fill="none" stroke-width=".6">
-        <circle cx="80" cy="75" r="66" stroke="#3a3634"/>
-        <circle cx="80" cy="75" r="44" stroke="#F53901" opacity=".6"/>
+  <div class="cards" style="grid-template-columns:repeat(5,1fr);gap:2.5mm;margin-bottom:4mm">
+    <div class="card" style="padding:4mm"><div class="big" style="font-size:15pt">28+</div><p>Years since 1998</p></div>
+    <div class="card" style="padding:4mm"><div class="big" style="font-size:15pt">75+</div><p>Projects</p></div>
+    <div class="card" style="padding:4mm"><div class="big" style="font-size:15pt">18M+</div><p>Sq ft</p></div>
+    <div class="card" style="padding:4mm"><div class="big" style="font-size:15pt">16+</div><p>Territories</p></div>
+    <div class="card" style="padding:4mm"><div class="big" style="font-size:15pt">10K+</div><p>Families</p></div>
+  </div>
+
+  <table>
+    <tr><td style="width:24%"><b>Six businesses</b></td><td>SHIVALIK Development, SHIVALIK FUND, LOFY and furniture, SIRE, R Operating System and Communities.</td></tr>
+    <tr><td><b>Landmark work</b></td><td>SHIVALIK CURV in GIFT CITY: Gold, NY Architectural Design Awards 2025. IGBC Green Champion. Great Place To Work, certified to Feb 2027.</td></tr>
+    <tr><td><b>Industry voice</b></td><td>Past Chairman, CREDAI AHMEDABAD. Guest on SPEAKING REAL ESTATE, TREC CONVERSATIONS and WHY AHMEDABAD.</td></tr>
+  </table>
+
+  <div class="obs" style="margin-top:4.5mm">
+    <div class="card"><span class="n">01</span><h3>A clear thesis without his face on it</h3><p>His site says "Life is changing. Real estate must change with it." and maps the future across People, Asset, Capital and Territories. Today it reads as company material. He is rarely seen or heard saying it.</p></div>
+    <div class="card"><span class="n">02</span><h3>Six businesses need one simple story</h3><p>Development, fund, furniture, institute, technology and communities. A first-time reader needs one sentence that holds all six together.</p></div>
+    <div class="card"><span class="n">03</span><h3>His best talks live on other channels</h3><p>His sharpest views on Ahmedabad, GIFT CITY and capital sit in podcasts hosted by others, where his own channels cannot reuse them.</p></div>
+    <div class="card"><span class="n">04</span><h3>The public record disagrees with itself</h3><p>Profiles call him founder in some places and co-founder in others, with different dates and CREDAI titles. For an investor, search is the first meeting.</p></div>
+  </div>
+  <div class="foot"><span>Sources: chitrakshah.com, shivalikgroup.com, press 2023 to 2025, podcast and industry profiles.</span><span>03</span></div>
+</section>
+
+<!-- 4 POSITIONING -->
+<section class="page dark">
+  <div class="top"><div class="logos"><img class="m" src="logo-white.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-white.svg" alt="SHIVALIK"></div><span class="mono">02 . The positioning</span></div>
+  <h1>One line every post<br><em>answers to.</em></h1>
+  <div class="mono" style="margin:2mm 0 3mm">The strategy statement</div>
+  <p class="statement">CHITRAK SHAH is building the operating system for Indian real estate. <span class="fl">Ahmedabad is where he proves it.</span></p>
+
+  <div class="logic">
+    <div><b>It is already his thesis</b>His website opens with "Powering India's Real Estate Operating System". We give that idea a face and a voice.</div>
+    <div><b>Six businesses, one idea</b>Each business becomes a part of the system: build, fund, furnish, teach, connect and bring people together.</div>
+    <div><b>The proof is local</b>28+ years, 75+ projects, 18M+ sq ft and 10K+ families in his home market make the claim easy to believe.</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:80mm 1fr;gap:7mm;align-items:center">
+    <svg viewBox="0 0 160 150" xmlns="http://www.w3.org/2000/svg" style="width:80mm">
+      <circle cx="80" cy="75" r="56" fill="none" stroke="#3a3634" stroke-width=".6"/>
+      <g stroke="#F53901" stroke-width=".5" opacity=".55">
+        <line x1="80" y1="52" x2="80" y2="19"/><line x1="100" y1="64" x2="128.5" y2="47"/><line x1="100" y1="86" x2="128.5" y2="103"/>
+        <line x1="80" y1="98" x2="80" y2="131"/><line x1="60" y1="86" x2="31.5" y2="103"/><line x1="60" y1="64" x2="31.5" y2="47"/>
       </g>
-      <circle cx="80" cy="75" r="22" fill="#F53901"/>
-      <text x="80" y="72.5" text-anchor="middle" fill="#141312" font-family="SG" font-size="5.6" font-weight="500">AHMEDABAD'S</text>
-      <text x="80" y="80" text-anchor="middle" fill="#141312" font-family="SG" font-size="5.6" font-weight="500">NEXT DECADE</text>
-      <g font-family="SG" font-size="6.4" fill="#fff" font-weight="500" text-anchor="middle">
-        <circle cx="80" cy="31" r="12" fill="#1e1c1b" stroke="#F53901" stroke-width=".6"/><text x="80" y="33.2">BUILDS</text>
-        <circle cx="42" cy="97" r="12" fill="#1e1c1b" stroke="#F53901" stroke-width=".6"/><text x="42" y="99.2">FUNDS</text>
-        <circle cx="118" cy="97" r="13" fill="#1e1c1b" stroke="#F53901" stroke-width=".6"/><text x="118" y="99.2">TEACHES</text>
+      <circle cx="80" cy="75" r="23" fill="#F53901"/>
+      <g font-family="SG" font-size="5" fill="#141312" font-weight="500" text-anchor="middle">
+        <text x="80" y="70">REAL ESTATE</text><text x="80" y="76.5">OPERATING</text><text x="80" y="83">SYSTEM</text>
       </g>
-      <g font-family="JBM" font-size="3.6" fill="#a39d96" text-anchor="middle" letter-spacing=".3">
-        <text x="80" y="11">SHIVALIK GROUP . GIFT CITY</text>
-        <text x="30" y="120">SHIVALIK FUND</text>
-        <text x="128" y="122">SIRE</text>
-        <text x="80" y="146">LEADS: CREDAI, STAGES, PRESS</text>
+      <g font-family="SG" font-size="4.6" fill="#fff" font-weight="500" text-anchor="middle">
+        <circle cx="80" cy="19" r="11.5" fill="#1f1d1c" stroke="#F53901" stroke-width=".6"/><text x="80" y="20.6">BUILD</text>
+        <circle cx="128.5" cy="47" r="11.5" fill="#1f1d1c" stroke="#F53901" stroke-width=".6"/><text x="128.5" y="48.6">FUND</text>
+        <circle cx="128.5" cy="103" r="11.5" fill="#1f1d1c" stroke="#F53901" stroke-width=".6"/><text x="128.5" y="104.6">FURNISH</text>
+        <circle cx="80" cy="131" r="11.5" fill="#1f1d1c" stroke="#F53901" stroke-width=".6"/><text x="80" y="132.6">TEACH</text>
+        <circle cx="31.5" cy="103" r="11.5" fill="#1f1d1c" stroke="#F53901" stroke-width=".6"/><text x="31.5" y="104.6">CONNECT</text>
+        <circle cx="31.5" cy="47" r="11.5" fill="#1f1d1c" stroke="#F53901" stroke-width=".6"/><text x="31.5" y="48.6">GATHER</text>
+      </g>
+      <g font-family="JBM" font-size="3.1" fill="#a39d96" text-anchor="middle">
+        <text x="80" y="4.5">DEVELOPMENT</text><text x="128.5" y="31">FUND</text><text x="128.5" y="121">LOFY</text>
+        <text x="80" y="149">SIRE</text><text x="31.5" y="121">R . OS</text><text x="31.5" y="31">COMMUNITIES</text>
       </g>
     </svg>
     <div>
-      <div class="mono" style="margin-bottom:3mm">How he sounds</div>
+      <div class="mono" style="margin-bottom:2.5mm">How he sounds</div>
       <table>
-        <tr><td><b>Answer first</b><small>He opens with the view, then the numbers behind it.</small></td></tr>
+        <tr><td><b>Answer first</b><small>He opens with his view, then the numbers behind it.</small></td></tr>
         <tr><td><b>Places and numbers</b><small>Named roads, sites and figures. Specifics make him credible.</small></td></tr>
         <tr><td><b>English and Gujarati</b><small>LinkedIn in English; reels in both, with subtitles.</small></td></tr>
         <tr><td><b>Always in the room</b><small>On site, in class, at the table. He is seen doing the work.</small></td></tr>
@@ -199,156 +222,188 @@ td small{display:block;font-size:7pt;color:var(--muted);margin-top:.6mm}
     </div>
   </div>
 
-  <div class="mono" style="margin:6mm 0 2.5mm">Who we speak to</div>
+  <div class="mono" style="margin:5mm 0 2.5mm">Who we speak to</div>
   <table>
     <tr><th style="width:27%">Audience</th><th style="width:43%">What they should believe</th><th>Where they meet him</th></tr>
-    <tr><td><b>Investors and HNIs</b></td><td>His capital follows his conviction about the city.</td><td>LinkedIn, newsletter, closed-door rooms</td></tr>
-    <tr><td><b>Homebuyers and NRI buyers</b></td><td>A SHIVALIK address is a stake in a growing city.</td><td>Instagram, YouTube</td></tr>
-    <tr><td><b>Industry and policymakers</b></td><td>He speaks for where the sector is headed.</td><td>LinkedIn, stages, press</td></tr>
+    <tr><td><b>Investors and NRIs</b></td><td>His capital follows a clear view of the market.</td><td>LinkedIn, newsletter, closed-door rooms</td></tr>
+    <tr><td><b>Homebuyers</b></td><td>A SHIVALIK address keeps its value long after handover.</td><td>Instagram, YouTube</td></tr>
+    <tr><td><b>Industry and policymakers</b></td><td>He is shaping how the sector works next.</td><td>LinkedIn, stages, press</td></tr>
     <tr><td><b>Young real estate talent</b></td><td>He is the teacher worth learning from.</td><td>Instagram, SIRE, campus talks</td></tr>
   </table>
-  <div class="foot"><span>Mask360 . Founder positioning for CHITRAK SHAH</span><span>03</span></div>
-</section>
-
-<!-- 4 CONTENT -->
-<section class="page light">
-  <div class="top"><img src="logo-black.png" alt="m360."><span class="mono">03 . Content approach</span></div>
-  <h1>Four pillars,<br><em>one flagship show.</em></h1>
-  <p class="lede">Every piece sits in one of four pillars. Each pillar proves one part of the line: he builds, he funds, he teaches, and he sees the city ahead.</p>
-
-  <table>
-    <tr><th style="width:24%">Pillar</th><th style="width:36%">What it covers</th><th style="width:31%">Example topics</th><th class="r">Share</th></tr>
-    <tr><td><b>The City Ahead</b><small>Sees</small></td><td>Ahmedabad and GIFT CITY growth: infrastructure, corridors and where demand moves next.</td><td>Where Ahmedabad grows in ten years. What GIFT CITY means for a family buyer.</td><td class="r qty">35%</td></tr>
-    <tr><td><b>The Builder's Desk</b><small>Builds</small></td><td>Sites, decisions and lessons since 1998, told from the ground.</td><td>What 1998 taught me. A morning on the CURV site.</td><td class="r qty">25%</td></tr>
-    <tr><td><b>Capital and Conviction</b><small>Funds</small></td><td>How he reads cycles, picks projects and thinks about the fund's thesis.</td><td>How we read a market cycle. What makes a project worth backing.</td><td class="r qty">25%</td></tr>
-    <tr><td><b>The Next Builders</b><small>Teaches</small></td><td>SIRE, careers and mentoring the next generation of the industry.</td><td>Five things I wish I knew at 25. Notes from a SIRE class.</td><td class="r qty">15%</td></tr>
-  </table>
-
-  <div class="card" style="margin-top:6mm;background:var(--ink);color:#f2eee8;display:grid;grid-template-columns:1fr 1.25fr;gap:7mm">
-    <div>
-      <span class="mono" style="color:var(--muted-d)">The flagship . Working title</span>
-      <div style="font-size:21pt;line-height:1.1;margin-bottom:2mm">The Next Decade<br><span style="color:var(--flame-d)">with CHITRAK SHAH</span></div>
-    </div>
-    <p style="font-size:8.4pt;color:#cfcac3;line-height:1.5">A 20 to 30 minute conversation each month with a person shaping Ahmedabad: a planner, banker, architect, founder or policymaker. One shoot day a month gives us the episode, 8 reels and 4 carousels. He stops being a guest on other shows and becomes the host of his own.</p>
-  </div>
-
-  <span class="mono sec">Every month</span>
-  <div class="cards grid6" style="display:grid">
-    <div class="card"><span class="mono">YouTube</span><div class="big">1 episode</div><p>The flagship show, 20 to 30 minutes</p></div>
-    <div class="card"><span class="mono">Reels and shorts</span><div class="big">8 reels</div><p>Cut from the episode for Instagram, YouTube and LinkedIn</p></div>
-    <div class="card"><span class="mono">Instagram</span><div class="big">8 posts</div><p>Carousels and stills, plus weekly stories</p></div>
-    <div class="card"><span class="mono">LinkedIn</span><div class="big">12 posts</div><p>Written in his voice, four as carousels</p></div>
-    <div class="card"><span class="mono">Newsletter</span><div class="big">1 article</div><p>Long-form view on LinkedIn and his website</p></div>
-    <div class="card inv"><span class="mono">In total</span><div class="big" style="color:var(--flame-d)">30 pieces</div><p>One shoot day and a 30-minute review of his time</p></div>
-  </div>
   <div class="foot"><span>Mask360 . Founder positioning for CHITRAK SHAH</span><span>04</span></div>
 </section>
 
-<!-- 5 DISTRIBUTION + ROADMAP -->
-<section class="page dark">
-  <div class="top"><img src="logo-white.png" alt="m360."><span class="mono">04 . Distribution and roadmap</span></div>
-  <h1>Where it goes,<br><em>and when.</em></h1>
-  <p class="lede">Each channel has one job. The show feeds every channel, and the website holds the full record.</p>
+<!-- 5 CONTENT -->
+<section class="page light">
+  <div class="top"><div class="logos"><img class="m" src="logo-black.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-black.svg" alt="SHIVALIK"></div><span class="mono">03 . Content approach</span></div>
+  <h1>Four pillars,<br><em>one show he hosts.</em></h1>
+  <p class="lede">The four pillars come straight from "Future I See" on his website. Each piece of content sits in one of them, so his own thesis gets told again and again in new ways.</p>
 
   <table>
-    <tr><th style="width:24%">Channel</th><th style="width:44%">Its job</th><th>Rhythm</th></tr>
-    <tr><td><b>Instagram</b><small>@chitrakshivalik</small></td><td>Reach and recall: his face, his sites, his city.</td><td>8 reels, 8 posts a month; weekly stories</td></tr>
-    <tr><td><b>LinkedIn</b></td><td>Authority with investors, industry and policymakers.</td><td>12 posts and 1 newsletter a month</td></tr>
-    <tr><td><b>YouTube</b></td><td>Home of the flagship show and the shorts.</td><td>1 episode and 8 shorts a month</td></tr>
-    <tr><td><b>chitrakshah.com</b></td><td>The source of truth: bio, record, media kit and episode library.</td><td>Updated monthly</td></tr>
-    <tr><td><b>Press and stages</b></td><td>Outside proof: interviews, panels, podcasts and campus talks.</td><td>A pitch calendar every quarter</td></tr>
-    <tr><td><b>Paid amplification</b></td><td>Puts the best pieces in front of each audience.</td><td>Monthly, from the working budget</td></tr>
+    <tr><th style="width:21%">Pillar</th><th style="width:37%">What it covers</th><th style="width:33%">Example topics</th><th class="r">Share</th></tr>
+    <tr><td><b>Territories</b></td><td>Ahmedabad, GIFT CITY and new growth corridors: infrastructure, industry and where demand moves next.</td><td>Where Ahmedabad grows in ten years. One territory at a time, explained.</td><td class="r qty">30%</td></tr>
+    <tr><td><b>Capital</b></td><td>How real estate is financed: SHIVALIK FUND, market cycles and how he picks a project.</td><td>How we read a market cycle. What makes a project worth backing.</td><td class="r qty">25%</td></tr>
+    <tr><td><b>Asset</b></td><td>Life after handover: quality, upkeep, interiors through LOFY and buildings like CURV.</td><td>Why a building's value starts at handover. Inside CURV.</td><td class="r qty">25%</td></tr>
+    <tr><td><b>People</b></td><td>How people live and work, careers through SIRE and the communities around his projects.</td><td>Five things I wish I knew at 25. Notes from a SIRE class.</td><td class="r qty">20%</td></tr>
   </table>
 
-  <span class="mono sec" style="margin-top:7mm">The twelve months</span>
-  <div class="cards" style="grid-template-columns:repeat(3,1fr)">
-    <div class="card phase"><span class="mono">Months 1 to 2</span><h3>Foundation</h3><ul>
-      <li>Baseline audit of every channel and search result</li>
-      <li>Positioning, voice guide and content pillars signed off</li>
-      <li>Portrait and site shoot</li>
-      <li>Website and profile refresh; one bio, one set of titles and dates everywhere</li>
-      <li>First episode shot</li></ul></div>
-    <div class="card phase"><span class="mono">Months 3 to 6</span><h3>Rhythm</h3><ul>
-      <li>Full monthly output live on all channels</li>
-      <li>Flagship show every month</li>
-      <li>LinkedIn newsletter launches</li>
-      <li>First press and stage pitches go out</li>
-      <li>First quarterly review</li></ul></div>
-    <div class="card phase"><span class="mono">Months 7 to 12</span><h3>Reach</h3><ul>
-      <li>Collaborations with podcasts and creators</li>
-      <li>Stage and campus talk series</li>
-      <li>Paid push behind the best performers</li>
-      <li>Year-one review and next-year plan</li></ul></div>
+  <div class="card inv" style="margin-top:5mm;display:grid;grid-template-columns:1fr 1.25fr;gap:7mm">
+    <div>
+      <span class="mono">The flagship show . Working title</span>
+      <div style="font-size:20pt;line-height:1.1">The Next Decade<br><span style="color:var(--flame-d)">with CHITRAK SHAH</span></div>
+    </div>
+    <p style="font-size:8.3pt;color:#cfcac3;line-height:1.5">A 20 to 30 minute conversation each month with someone shaping how India builds: a planner, banker, architect, founder or policymaker. One shoot day a month gives us the episode, 8 reels and 4 carousels. He stops being a guest on other people's shows and becomes the host of his own.</p>
+  </div>
+
+  <span class="mono sec">Every month you get</span>
+  <div class="cards grid6">
+    <div class="card"><span class="mono">YouTube</span><div class="big">1 episode</div><p>The flagship show, 20 to 30 minutes</p></div>
+    <div class="card"><span class="mono">Reels and shorts</span><div class="big">8 reels</div><p>Cut from the episode for Instagram, YouTube and LinkedIn</p></div>
+    <div class="card"><span class="mono">Instagram</span><div class="big">8 posts</div><p>Carousels and stills, plus 4 sets of stories</p></div>
+    <div class="card"><span class="mono">LinkedIn</span><div class="big">12 posts</div><p>Written in his voice, four of them carousels</p></div>
+    <div class="card"><span class="mono">Newsletter</span><div class="big">1 article</div><p>A long-form view on LinkedIn and chitrakshah.com</p></div>
+    <div class="card inv"><span class="mono">In total</span><div class="big" style="color:var(--flame-d)">30 pieces</div><p>From one shoot day and a 30-minute review of his time</p></div>
   </div>
   <div class="foot"><span>Mask360 . Founder positioning for CHITRAK SHAH</span><span>05</span></div>
 </section>
 
-<!-- 6 OUTCOMES -->
-<section class="page light">
-  <div class="top"><img src="logo-black.png" alt="m360."><span class="mono">05 . Measurable outcomes</span></div>
-  <h1>What we measure,<br><em>every month.</em></h1>
-  <p class="lede">In month one we record a baseline for every metric below. Targets are set against it, signed off together and reviewed each quarter. You get a report every month.</p>
+<!-- 6 DISTRIBUTION + ROADMAP -->
+<section class="page dark">
+  <div class="top"><div class="logos"><img class="m" src="logo-white.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-white.svg" alt="SHIVALIK"></div><span class="mono">04 . Distribution and roadmap</span></div>
+  <h1>Where it goes,<br><em>and when.</em></h1>
+  <p class="lede">Each channel has one job. The show feeds every channel, and his website holds the full record.</p>
 
   <table>
-    <tr><th style="width:20%">Goal</th><th style="width:44%">Metric</th><th>How we track it</th></tr>
-    <tr><td><b>Visibility</b></td><td>Followers, reach and views on Instagram, LinkedIn and YouTube</td><td>Platform analytics, monthly</td></tr>
-    <tr><td><b>Influence</b></td><td>Engagement rate, saves, shares and comments from target audiences</td><td>Platform analytics and audience sampling</td></tr>
-    <tr><td><b>Thought leadership</b></td><td>Press mentions, podcast and stage invitations, inbound speaking requests</td><td>Shared media log</td></tr>
-    <tr><td><b>Search</b></td><td>Searches for his name; a first page of results that is accurate and owned</td><td>Search Console and a monthly search check</td></tr>
-    <tr><td><b>Business</b></td><td>Enquiries to SHIVALIK GROUP, the fund and SIRE that name him as the reason</td><td>Tagged enquiry log with the SHIVALIK team</td></tr>
+    <tr><th style="width:24%">Channel</th><th style="width:44%">Its job</th><th>How often</th></tr>
+    <tr><td><b>Instagram</b><small>@chitrakshivalik</small></td><td>Reach and recall: his face, his sites, his city.</td><td>8 reels and 8 posts a month; 4 story sets</td></tr>
+    <tr><td><b>LinkedIn</b></td><td>Authority with investors, industry and policymakers.</td><td>12 posts and 1 newsletter a month</td></tr>
+    <tr><td><b>YouTube</b></td><td>Home of the flagship show and the shorts.</td><td>1 episode and 8 shorts a month</td></tr>
+    <tr><td><b>chitrakshah.com</b></td><td>The source of truth: bio, media kit, articles and every episode.</td><td>Updated every month</td></tr>
+    <tr><td><b>Press and stages</b></td><td>Outside proof: interviews, panels, podcasts and campus talks.</td><td>A new pitch plan every quarter</td></tr>
+    <tr><td><b>Paid promotion</b></td><td>Puts the best pieces in front of each audience.</td><td>Monthly, from the working budget</td></tr>
   </table>
 
-  <span class="mono sec" style="margin-top:7mm">What we commit to in twelve months</span>
+  <span class="mono sec" style="margin-top:7mm">The plan, step by step</span>
+  <div class="cards" style="grid-template-columns:repeat(3,1fr)">
+    <div class="card phase"><span class="mono">Weeks 1 to 4</span><h3>Setup</h3><ul>
+      <li>Audit and baseline of every channel and search result</li>
+      <li>Positioning, voice guide and pillars signed off</li>
+      <li>Media kit and show pages on chitrakshah.com</li>
+      <li>One bio, one title and one set of dates on every profile</li>
+      <li>First episode shot</li></ul></div>
+    <div class="card phase"><span class="mono">Months 1 to 6</span><h3>Rhythm</h3><ul>
+      <li>All 30 pieces a month live on every channel</li>
+      <li>The show goes out every month</li>
+      <li>LinkedIn newsletter launches</li>
+      <li>First press and stage pitches go out</li>
+      <li>Reviews at month 3 and month 6</li></ul></div>
+    <div class="card phase"><span class="mono">Months 7 to 12</span><h3>Reach</h3><ul>
+      <li>Collaborations with podcasts and creators</li>
+      <li>Stage and campus talk series</li>
+      <li>Paid promotion behind the best performers</li>
+      <li>Year-one review and the next year's plan</li></ul></div>
+  </div>
+  <div class="foot"><span>Mask360 . Founder positioning for CHITRAK SHAH</span><span>06</span></div>
+</section>
+
+<!-- 7 OUTCOMES -->
+<section class="page light">
+  <div class="top"><div class="logos"><img class="m" src="logo-black.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-black.svg" alt="SHIVALIK"></div><span class="mono">05 . Measurable outcomes</span></div>
+  <h1>What we measure,<br><em>every month.</em></h1>
+  <p class="lede">During setup we record where every number stands today. We agree targets against that baseline together and review them every quarter. You get a report every month.</p>
+
+  <table>
+    <tr><th style="width:20%">Goal</th><th style="width:44%">What we measure</th><th>How we track it</th></tr>
+    <tr><td><b>Visibility</b></td><td>Followers, reach and views on Instagram, LinkedIn and YouTube</td><td>Platform analytics, monthly</td></tr>
+    <tr><td><b>Influence</b></td><td>Engagement, saves, shares and comments from the four audiences</td><td>Platform analytics and comment sampling</td></tr>
+    <tr><td><b>Thought leadership</b></td><td>Press mentions, podcast and stage invitations, speaking requests</td><td>Shared media log</td></tr>
+    <tr><td><b>Search</b></td><td>Searches for his name, and a first page of results that is accurate</td><td>Monthly search check</td></tr>
+    <tr><td><b>Business</b></td><td>Enquiries to SHIVALIK, the fund and SIRE that mention him as the reason</td><td>Tagged enquiry log with the SHIVALIK team</td></tr>
+  </table>
+
+  <span class="mono sec" style="margin-top:7mm">What we promise to deliver in twelve months</span>
   <div class="cards" style="grid-template-columns:repeat(4,1fr)">
-    <div class="card inv"><span class="mono">Episodes</span><div class="big" style="color:var(--flame-d)">12</div><p>Flagship show, one a month</p></div>
+    <div class="card inv"><span class="mono">Episodes</span><div class="big" style="color:var(--flame-d)">12</div><p>The flagship show, one a month</p></div>
     <div class="card"><span class="mono">Reels</span><div class="big">96</div><p>Cut from the show</p></div>
     <div class="card"><span class="mono">Instagram</span><div class="big">96</div><p>Carousels and stills</p></div>
     <div class="card"><span class="mono">LinkedIn</span><div class="big">144</div><p>Posts, plus 12 articles</p></div>
   </div>
 
-  <div class="callout" style="margin-top:6mm"><span class="mono">At the end of year one</span>Anyone who searches for CHITRAK SHAH finds one consistent story, a library of twelve episodes in his own voice, and a clear answer to the question: <span style="color:var(--flame-d)">who should I listen to about Ahmedabad's future?</span></div>
-  <div class="foot"><span>Mask360 . Founder positioning for CHITRAK SHAH</span><span>06</span></div>
+  <div class="callout" style="margin-top:6mm"><span class="mono">At the end of year one</span>Anyone who searches for CHITRAK SHAH finds one consistent story, twelve episodes in his own voice, and a clear answer to the question: <span style="color:var(--flame-d)">who is changing how India builds?</span></div>
+  <div class="foot"><span>Mask360 . Founder positioning for CHITRAK SHAH</span><span>07</span></div>
 </section>
 
-<!-- 7 COMMERCIALS -->
+<!-- 8 SCOPE OF WORK -->
 <section class="page light">
-  <div class="top"><img src="logo-black.png" alt="m360."><span class="mono">06 . The commercials</span></div>
-  <h1>One retainer,<br><em>line by line.</em></h1>
-  <p class="lede" style="margin-bottom:5mm">A twelve-month retainer with a one-time setup. INR plus GST.</p>
+  <div class="top"><div class="logos"><img class="m" src="logo-black.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-black.svg" alt="SHIVALIK"></div><span class="mono">06 . Scope of work</span></div>
+  <h1>Exactly what<br><em>you get.</em></h1>
+  <p class="lede">Every item has a code. The same code sits against its fee on the next page.</p>
+
+  <div class="ws"><h3>A . Setup <span>One time . weeks 1 to 4</span></h3>
+  <table>
+    <tr><td style="width:9mm" class="code">A1</td><td style="width:44%"><b>Audit and positioning playbook</b><small>A review of his Instagram, LinkedIn, YouTube, website and search results, with today's numbers as the baseline</small></td><td><small class="v">You receive: 1 audit report and 1 playbook with the positioning line, audience map, voice guide, 4 pillars and his bio in three lengths</small></td></tr>
+    <tr><td class="code">A2</td><td><b>Website pages and profile clean-up</b><small>New pages on chitrakshah.com and one consistent bio everywhere</small></td><td><small class="v">You receive: a media kit page and a show page on chitrakshah.com; updated bios on Instagram, LinkedIn, YouTube and Google</small></td></tr>
+  </table></div>
+
+  <div class="ws"><h3>B . Monthly retainer <span>Every month . months 1 to 12</span></h3>
+  <table>
+    <tr><td style="width:9mm" class="code">B1</td><td style="width:44%"><b>The flagship show</b><small>Guest booking, shoot direction on one shoot day, editing, subtitles and thumbnails</small></td><td><small class="v">You receive: 1 episode of 20 to 30 minutes and 8 reels a month</small></td></tr>
+    <tr><td class="code">B2</td><td><b>LinkedIn writing</b><small>Posts and a newsletter written in his voice, approved by him</small></td><td><small class="v">You receive: 12 posts and 1 newsletter article a month</small></td></tr>
+    <tr><td class="code">B3</td><td><b>Instagram and LinkedIn design</b><small>Designed carousels, stills and story sets</small></td><td><small class="v">You receive: 8 Instagram posts, 4 LinkedIn carousels and 4 story sets a month</small></td></tr>
+    <tr><td class="code">B4</td><td><b>Publishing and channel management</b><small>Scheduling, replies to comments and profile upkeep on four channels</small></td><td><small class="v">You receive: every piece posted on time; comments answered every working day</small></td></tr>
+    <tr><td class="code">B5</td><td><b>Press and stages</b><small>Press notes, pitches to media, podcasts, panels and campuses</small></td><td><small class="v">You receive: a pitch plan each quarter and a log of every pitch and booking</small></td></tr>
+    <tr><td class="code">B6</td><td><b>Strategy and reporting</b><small>Monthly content calendar, monthly report and quarterly review meeting</small></td><td><small class="v">You receive: 1 calendar and 1 report a month, and 4 review meetings a year</small></td></tr>
+  </table></div>
+
+  <div class="ws"><h3>C . Working budget <span>Paid by SHIVALIK at actual cost</span></h3>
+  <table>
+    <tr><td style="width:9mm" class="code">C1</td><td style="width:44%"><b>Paid promotion</b></td><td><small class="v">Ad spend paid directly to Meta, LinkedIn and YouTube</small></td></tr>
+    <tr><td class="code">C2</td><td><b>Shoot and travel costs</b></td><td><small class="v">Camera crew, studio, travel outside Mumbai and stage or event fees, approved before booking</small></td></tr>
+  </table></div>
+  <div class="foot"><span>Mask360 . Founder positioning for CHITRAK SHAH</span><span>08</span></div>
+</section>
+
+<!-- 9 COMMERCIALS -->
+<section class="page light">
+  <div class="top"><div class="logos"><img class="m" src="logo-black.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-black.svg" alt="SHIVALIK"></div><span class="mono">07 . The commercials</span></div>
+  <h1>Every fee,<br><em>line by line.</em></h1>
+  <p class="lede" style="margin-bottom:4.5mm">One setup fee, then one monthly retainer for twelve months. All figures in INR, plus GST.</p>
 
   <table>
-    <tr><th style="width:56%">One-time setup</th><th>Qty</th><th class="r">₹ + GST</th></tr>
-    <tr><td><b>Audit and positioning playbook</b><small>Baseline audit, positioning line, audience map, voice guide and content pillars</small></td><td class="qty">1 playbook</td><td class="r">₹2,70,000</td></tr>
-    <tr><td><b>Founder website refresh</b><small>chitrakshah.com: bio, record, media kit and episode library</small></td><td class="qty">1 site</td><td class="r">₹1,50,000</td></tr>
-    <tr class="sum"><td>Setup fee</td><td></td><td class="r">₹4,20,000</td></tr>
+    <tr><th style="width:9mm"></th><th style="width:46%">A . One-time setup</th><th>Quantity</th><th class="r">Fee</th></tr>
+    <tr><td class="code">A1</td><td><b>Audit and positioning playbook</b></td><td class="qty">1 report, 1 playbook</td><td class="r">₹2,70,000</td></tr>
+    <tr><td class="code">A2</td><td><b>Website pages and profile clean-up</b></td><td class="qty">2 pages, 4 profiles</td><td class="r">₹1,50,000</td></tr>
+    <tr class="sum"><td></td><td>Setup fee, paid once</td><td></td><td class="r">₹4,20,000</td></tr>
   </table>
 
-  <table style="margin-top:4mm">
-    <tr><th style="width:56%">Monthly retainer</th><th>Qty a month</th><th class="r">₹ + GST</th></tr>
-    <tr><td><b>Strategy, calendar and ghostwriting</b><small>Editorial calendar, LinkedIn posts and newsletter in his voice, monthly report</small></td><td class="qty">12 posts, 1 article</td><td class="r">₹1,00,000</td></tr>
-    <tr><td><b>Flagship show</b><small>Shoot direction, episode edit, reels, shorts and thumbnails</small></td><td class="qty">1 episode, 8 reels</td><td class="r">₹2,00,000</td></tr>
-    <tr><td><b>Social creatives and copy</b><small>Instagram carousels and stills, LinkedIn carousels, story sets</small></td><td class="qty">12 creatives</td><td class="r">₹50,000</td></tr>
-    <tr><td><b>Publishing and channel management</b><small>Scheduling, comments, profile upkeep across four channels</small></td><td class="qty">4 channels</td><td class="r">₹50,000</td></tr>
-    <tr><td><b>Press and stages desk</b><small>Pitch calendar, press notes, podcast and stage bookings</small></td><td class="qty">Ongoing</td><td class="r">₹60,000</td></tr>
-    <tr class="sum"><td>Monthly retainer</td><td></td><td class="r">₹4,60,000</td></tr>
+  <table style="margin-top:3mm">
+    <tr><th style="width:9mm"></th><th style="width:46%">B . Monthly retainer</th><th>Quantity a month</th><th class="r">Fee a month</th></tr>
+    <tr><td class="code">B1</td><td><b>The flagship show</b></td><td class="qty">1 episode, 8 reels</td><td class="r">₹2,00,000</td></tr>
+    <tr><td class="code">B2</td><td><b>LinkedIn writing</b></td><td class="qty">12 posts, 1 article</td><td class="r">₹70,000</td></tr>
+    <tr><td class="code">B3</td><td><b>Instagram and LinkedIn design</b></td><td class="qty">12 designs, 4 story sets</td><td class="r">₹50,000</td></tr>
+    <tr><td class="code">B4</td><td><b>Publishing and channel management</b></td><td class="qty">4 channels</td><td class="r">₹50,000</td></tr>
+    <tr><td class="code">B5</td><td><b>Press and stages</b></td><td class="qty">Ongoing</td><td class="r">₹60,000</td></tr>
+    <tr><td class="code">B6</td><td><b>Strategy and reporting</b></td><td class="qty">1 calendar, 1 report</td><td class="r">₹30,000</td></tr>
+    <tr class="sum"><td></td><td>Monthly retainer</td><td></td><td class="r">₹4,60,000</td></tr>
   </table>
 
-  <table style="margin-top:4mm">
-    <tr><th style="width:56%">Working budget . At actuals, paid directly</th><th>Qty</th><th class="r">Recommended</th></tr>
-    <tr><td><b>Paid amplification</b><small>Media spend behind the best pieces, paid to the platforms</small></td><td class="qty">Monthly</td><td class="r">₹5,00,000</td></tr>
+  <table style="margin-top:3mm">
+    <tr><th style="width:9mm"></th><th style="width:46%">C . Working budget . paid at actual cost</th><th>Quantity</th><th class="r">We recommend</th></tr>
+    <tr><td class="code">C1</td><td><b>Paid promotion</b></td><td class="qty">Monthly</td><td class="r">₹5,00,000 a month</td></tr>
+    <tr><td class="code">C2</td><td><b>Shoot and travel costs</b></td><td class="qty">As needed</td><td class="r">Quoted before booking</td></tr>
   </table>
 
-  <div class="cards" style="grid-template-columns:repeat(3,1fr);margin-top:6mm">
-    <div class="card inv"><span class="mono">Monthly retainer</span><div class="big">₹4,60,000</div><p>Plus GST, twelve months, billed monthly in advance</p></div>
-    <div class="card"><span class="mono">Setup . 75 / 25</span><div class="big">₹4,20,000</div><p>₹3,15,000 on approval, ₹1,05,000 on delivery</p></div>
-    <div class="card"><span class="mono">Year-one fees</span><div class="big">₹59,40,000</div><p>Setup plus twelve months of retainer, plus GST</p></div>
+  <div class="cards" style="grid-template-columns:repeat(3,1fr);margin-top:5mm">
+    <div class="card inv"><span class="mono">Monthly retainer</span><div class="big">₹4,60,000</div><p>Plus GST. Billed at the start of each month for twelve months.</p></div>
+    <div class="card"><span class="mono">Setup . 75 / 25</span><div class="big">₹4,20,000</div><p>₹3,15,000 on approval; ₹1,05,000 when the playbook is delivered.</p></div>
+    <div class="card"><span class="mono">Year-one fees</span><div class="big">₹59,40,000</div><p>Setup ₹4,20,000 plus twelve months at ₹4,60,000, plus GST.</p></div>
   </div>
-  <div class="foot"><span>All fees in INR, exclusive of GST at 18%. Valid for 21 days from 9 November 2026.</span><span>07</span></div>
+  <div class="foot"><span>All fees in INR, exclusive of GST at 18%. Valid for 21 days from 9 November 2026.</span><span>09</span></div>
 </section>
 
-<!-- 8 TEAM + TERMS -->
+<!-- 10 TEAM + TERMS -->
 <section class="page dark">
-  <div class="top"><img src="logo-white.png" alt="m360."><span class="mono">07 . Team and terms</span></div>
+  <div class="top"><div class="logos"><img class="m" src="logo-white.png" alt="m360."><span class="x">×</span><img class="s" src="shivalik-white.svg" alt="SHIVALIK"></div><span class="mono">08 . Team and terms</span></div>
   <h1>The team and<br><em>the terms.</em></h1>
   <table>
     <tr><th style="width:27%">Role</th><th style="width:30%">Name</th><th>Owns</th></tr>
@@ -356,39 +411,40 @@ td small{display:block;font-size:7pt;color:var(--muted);margin-top:.6mm}
     <tr><td><b>Strategist</b></td><td>Prarthana Jetly</td><td>Audit, research, content pillars and monthly reports</td></tr>
     <tr><td><b>Senior manager</b></td><td>Assigned at kickoff</td><td>Covers Kaavish when unavailable; timelines, approvals, quality</td></tr>
     <tr><td><b>Writer</b></td><td>Assigned at kickoff</td><td>LinkedIn posts, newsletter and captions in his voice</td></tr>
-    <tr><td><b>Designer</b></td><td>Assigned at kickoff</td><td>Carousels, stills, thumbnails and the website refresh</td></tr>
+    <tr><td><b>Designer</b></td><td>Assigned at kickoff</td><td>Carousels, stills, thumbnails and website pages</td></tr>
     <tr><td><b>Video editor and motion designer</b></td><td>Assigned at kickoff</td><td>The flagship show, reels and shorts</td></tr>
     <tr><td><b>PR lead</b></td><td>Assigned at kickoff</td><td>Press notes, podcast and stage bookings</td></tr>
   </table>
 
-  <div class="two terms" style="margin-top:5mm">
+  <div class="two terms" style="margin-top:4.5mm">
     <div>
-      <div><b>Billing.</b> Setup: 75% on approval, before work begins; 25% on delivery. Retainer billed monthly in advance. Invoices payable within 7 days.</div>
-      <div><b>Duration.</b> Twelve months from written approval and receipt of the first payment.</div>
-      <div><b>At actuals.</b> Shoot crews, studio, travel outside Mumbai, paid media and stage or event fees, shared for approval before booking.</div>
+      <div><b>Billing.</b> Setup: 75% on approval, before work begins; 25% on delivery. Retainer billed at the start of each month. Invoices payable within 7 days.</div>
+      <div><b>Duration.</b> Four weeks of setup, then twelve months of retainer, from written approval and receipt of the first payment.</div>
+      <div><b>At actuals.</b> Paid promotion, camera crew, studio, travel outside Mumbai and stage or event fees, shared for approval before booking.</div>
       <div><b>Taxes.</b> All fees in INR, exclusive of GST at 18%.</div>
     </div>
     <div>
-      <div><b>Inputs.</b> One shoot day and a 30-minute review each month from Mr Shah; access to his channels and analytics; one named approver at SHIVALIK.</div>
-      <div><b>Not in scope.</b> SHIVALIK GROUP project campaigns, fund marketing material, crisis communication and event production.</div>
+      <div><b>Inputs.</b> One shoot day and one 30-minute review a month from Mr Shah; access to his channels and analytics; one named approver at SHIVALIK.</div>
+      <div><b>Press.</b> We pitch and follow up on every opportunity. Coverage and stage invitations are decided by the outlet or organiser.</div>
+      <div><b>Not in scope.</b> SHIVALIK project campaigns, fund marketing material, crisis communication and event production.</div>
       <div><b>Changes.</b> Extra work is quoted and started only after written approval. Overdue invoices may pause work. Agency T&amp;Cs and the services agreement apply.</div>
     </div>
   </div>
 
-  <div class="card" style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;padding:7mm 8mm">
+  <div class="card" style="margin-top:auto;display:flex;justify-content:space-between;align-items:flex-end;padding:6.5mm 8mm">
     <div>
       <span class="mono">Talk to us</span>
       <div style="font-size:17pt;color:#fff;margin-bottom:1mm">Kaavish Ramchandani</div>
-      <div style="font-size:8pt;color:var(--muted-d);margin-bottom:4mm">Founder, Mask360</div>
-      <div style="font-family:JBM,monospace;font-size:7.5pt;line-height:1.9;color:var(--flame-d)">kaavish@mask360.agency<br>prarthana@mask360.agency<br>mask360.work</div>
+      <div style="font-size:8pt;color:var(--muted-d);margin-bottom:3.5mm">Founder, Mask360</div>
+      <div style="font-family:JBM,monospace;font-size:7.4pt;line-height:1.9;color:var(--flame-d)">kaavish@mask360.agency<br>prarthana@mask360.agency<br>mask360.work</div>
     </div>
     <div style="text-align:right">
       <span class="mono">Prepared for</span>
-      <div style="font-size:15pt;color:#fff;letter-spacing:.14em;font-weight:500">SHIVALIK</div>
+      <img src="shivalik-white.svg" style="height:9mm;display:block;margin:0 0 2mm auto" alt="SHIVALIK">
       <div style="font-size:8pt;color:var(--muted-d)">CHITRAK SHAH, Founder and MD</div>
     </div>
   </div>
-  <div class="foot" style="margin-top:4mm"><span>Mask360 . Founder positioning proposal for CHITRAK SHAH, SHIVALIK GROUP . 9 November 2026</span><span>08</span></div>
+  <div class="foot" style="margin-top:4mm"><span>Mask360 . Founder positioning proposal for CHITRAK SHAH, SHIVALIK GROUP . 9 November 2026</span><span>10</span></div>
 </section>
 
 </body>

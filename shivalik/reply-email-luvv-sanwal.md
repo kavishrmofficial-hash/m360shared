@@ -6,17 +6,17 @@ Hi Luvv,
 
 Thank you for your note, and my apologies for the slow reply. Our team was out of office last week, and I wanted to come back to you with a full proposal.
 
-Please find it attached. We studied Mr Shah's website, Instagram, podcast appearances and public record, and built the plan around one positioning line:
+Please find it attached. We studied Mr Shah's website, SHIVALIK GROUP's website, his podcast appearances and his public record. We built the plan on the thesis he already shares on chitrakshah.com:
 
-**CHITRAK SHAH is the builder of Ahmedabad's next decade. He builds it, funds it and trains the people who will run it.**
+**CHITRAK SHAH is building the operating system for Indian real estate. Ahmedabad is where he proves it.**
 
-The proposal covers everything you asked for:
+Page 2 answers each of your five asks on one page:
 
 - **Strategy:** the positioning, the audiences and how he should sound
-- **Content approach:** four content pillars and a monthly flagship show he hosts
-- **Distribution plan:** the job of each channel and a twelve-month roadmap
+- **Content approach:** four pillars taken from his "Future I See", plus a monthly show he hosts
+- **Distribution plan:** one job for each channel, and a twelve-month roadmap
 - **Measurable outcomes:** what we track every month, plus the output we commit to
-- **Commercials:** a twelve-month retainer with a one-time setup
+- **Commercials:** a one-time setup and a monthly retainer, with every line item spelled out
 
 We would be glad to walk you through it on a call. Would any time this Thursday or Friday suit you?
 
