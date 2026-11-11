@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tarush Kaul Email</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F4F2EF;
+    --card: #FFFFFF;
+    --ink: #111111;
+    --muted: #6B6660;
+    --line: #E4E0DA;
+    --flame: #F53901;
+    --flame-soft: #FFE9E1;
+    --confirm-bg: #FFF4C2;
+    --confirm-ink: #6A5200;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #121212; --card: #1C1C1C; --ink: #F2F0ED; --muted: #A39E97;
+      --line: #2E2E2E; --flame-soft: #3A1A10; --confirm-bg: #3A3210; --confirm-ink: #F3D77A;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #121212; --card: #1C1C1C; --ink: #F2F0ED; --muted: #A39E97;
+    --line: #2E2E2E; --flame-soft: #3A1A10; --confirm-bg: #3A3210; --confirm-ink: #F3D77A;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: "Space Grotesk", system-ui, sans-serif; line-height: 1.55;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 32px 16px 64px; }
+  .mark { font-weight: 700; font-size: 28px; letter-spacing: -0.02em; }
+  .mark span { color: var(--flame); }
+  .meta { color: var(--muted); font-size: 14px; margin: 4px 0 24px; }
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 20px;
+    padding: 24px; margin-bottom: 20px;
+  }
+  .label {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--muted); margin: 0 0 8px;
+  }
+  .row { display: flex; gap: 12px; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+  .subject { font-size: 18px; font-weight: 500; }
+  button {
+    font: inherit; font-size: 14px; font-weight: 500; cursor: pointer;
+    background: var(--flame); color: #fff; border: 0; border-radius: 999px; padding: 8px 18px;
+  }
+  button.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+  #email { font-size: 15px; }
+  #email p { margin: 0 0 14px; }
+  #email ol { margin: 0 0 14px; padding-left: 20px; }
+  #email li { margin-bottom: 10px; }
+  .confirm {
+    background: var(--confirm-bg); color: var(--confirm-ink);
+    border-radius: 6px; padding: 0 5px; font-size: 13px; font-weight: 500;
+  }
+  .checks { list-style: none; padding: 0; margin: 0; font-size: 14px; }
+  .checks li { padding: 10px 0; border-top: 1px solid var(--line); }
+  .checks li:first-child { border-top: 0; }
+  .why { font-size: 14px; color: var(--muted); }
+  .why b { color: var(--ink); }
+  .toast { font-size: 13px; color: var(--flame); min-height: 18px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="mark">m360<span>.</span></div>
+  <div class="meta">Reply to Tarush Kaul, Customer Marketing Head, North &amp; East India, MOËT HENNESSY · send to tkaul@moethennessy.com</div>
+
+  <div class="card">
+    <p class="label">Subject</p>
+    <div class="row">
+      <div class="subject" id="subject">MOËT HENNESSY x Mask360 | 4 room ideas for your North &amp; East accounts</div>
+      <button class="ghost" onclick="copySubject()">Copy subject</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="row" style="margin-bottom:16px">
+      <p class="label" style="margin:0">Email body</p>
+      <button onclick="copyBody()">Copy email</button>
+    </div>
+    <div id="email" style="font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.55;">
+      <p>Hi Tarush,</p>
+      <p>Thank you for the quick reply. Here are the details, as promised.</p>
+      <p>Your remit covers the places where these brands get tasted: luxury hotels, fine dining rooms, bars and premium shelves across North and East India. That is where our experiential arm works. Mask360 is a full service marketing and creative agency across India and UAE, and we design, build and run branded rooms for premium brands.</p>
+      <p>Four ideas, built around your plans for MOËT &amp; CHANDON, CHANDON INDIA and GLENMORANGIE:</p>
+      <ol>
+        <li><b>The Signature Serve Room.</b> A MOËT &amp; CHANDON evening inside a partner luxury hotel bar, with set design, a serve ritual, a curated guest list and creator capture. One format we can repeat across your key accounts.</li>
+        <li><b>The GLENMORANGIE Masterclass Circuit.</b> A bartender advocacy series that moves across top bars. Each session is filmed into short trade content your sales team can use.</li>
+        <li><b>CHANDON INDIA for the wedding season.</b> A sparkling bar and gifting kit for premium weddings and festive hampers, live from November to February.</li>
+        <li><b>The Premium Shelf.</b> A designed display and tasting bay for modern trade outlets, built to Indian regulatory norms.</li>
+      </ol>
+      <p>Each activation comes with a simple tracker: listings added, covers served and sell out during the activation window, so every rupee maps back to an account.</p>
+      <p>Would a 20 minute call next week work? I can walk you through formats and timelines for whichever idea fits your plan best. <span class="confirm">[confirm two slots, e.g. Tue or Thu afternoon]</span></p>
+      <p>Warm regards,<br>
+      Prarthana Jetly<br>
+      Junior Strategist, Mask360<br>
+      <span class="confirm">[confirm phone]</span> · <span class="confirm">[confirm website]</span></p>
+    </div>
+    <div class="toast" id="toast"></div>
+  </div>
+
+  <div class="card">
+    <p class="label">Before you hit send</p>
+    <ul class="checks">
+      <li><span class="confirm">[confirm]</span> Fill the three yellow tags in Gmail after you paste. They copy across as plain text.</li>
+      <li><span class="confirm">[confirm]</span> If Kaavish wants a credential line, add one past experiential project from the Master Doc after paragraph three. I could not find the Master Doc in Drive, so none is included.</li>
+      <li>Attach nothing yet. Formats and costs go on the call, which keeps the email to one ask.</li>
+    </ul>
+  </div>
+
+  <div class="card why">
+    <p class="label">Why this email</p>
+    <p><b>Goal in one line:</b> turn "share details" into a 20 minute call.</p>
+    <p><b>Why these four ideas:</b> each one maps to a line on his LinkedIn: HoReCa signature serves, bartender advocacy and masterclasses, festive gifting, and modern trade share of shelf. He reads his own plan back, with us doing the work.</p>
+    <p><b>Why the tracker line:</b> he manages a budget with ROI tracking across accounts. Showing we report by account speaks to how he gets measured.</p>
+  </div>
+</div>
+
+<script>
+  function toast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    setTimeout(function () { t.textContent = ''; }, 2500);
+  }
+  function copySubject() {
+    var text = document.getElementById('subject').textContent;
+    navigator.clipboard.writeText(text).then(function () { toast('Subject copied'); },
+      function () { toast('Copy failed. Select and copy by hand.'); });
+  }
+  function copyBody() {
+    var node = document.getElementById('email');
+    var range = document.createRange();
+    range.selectNodeContents(node);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    var ok = false;
+    try { ok = document.execCommand('copy'); } catch (e) {}
+    sel.removeAllRanges();
+    toast(ok ? 'Email copied. Paste into Gmail.' : 'Copy failed. Select and copy by hand.');
+  }
+</script>
+</body>
+</html>
