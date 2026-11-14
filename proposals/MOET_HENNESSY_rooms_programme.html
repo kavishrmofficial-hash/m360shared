@@ -1,0 +1,354 @@
+<title>The Rooms Programme</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap">
+<style>
+  /* Layout: alternating black and white bands, oversized tight headlines, small caps labels, open accordion list */
+  :root {
+    --ink: #0B0B0A;
+    --paper: #FFFFFF;
+    --stone: #F2F1EF;
+    --mute: #8A8784;
+    --mute-dark: #A8A49F;
+    --line: #E3E1DD;
+    --line-dark: #262524;
+    --panel-dark: #171716;
+    --flame: #F53901;
+    --gold: #C9A86A;
+    --amber: #B4621E;
+    --blush: #D9A79A;
+    --display: "Space Grotesk", "Helvetica Neue", Arial, sans-serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  body { background: var(--paper); color: var(--ink); font-family: var(--display); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+  .in { max-width: 1280px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .band { padding-block: clamp(64px, 10vw, 140px); }
+  .dark { background: var(--ink); color: var(--paper); }
+  .stone { background: var(--stone); }
+  .label { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); margin: 0; }
+  .dark .label { color: var(--mute-dark); }
+  h1, h2, h3 { font-weight: 500; letter-spacing: -0.045em; line-height: 0.95; margin: 0; text-wrap: balance; }
+  h2 { font-size: clamp(40px, 6.5vw, 88px); }
+  h3 { font-size: clamp(30px, 4.6vw, 60px); letter-spacing: -0.04em; }
+  p { margin: 0; }
+  .dot { color: var(--flame); }
+  .grain { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .07 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+  /* Hero */
+  .hero { position: relative; background: var(--ink); color: var(--paper); overflow: hidden; border-radius: 0 0 28px 28px; }
+  .hero::before { content: ""; position: absolute; inset: 0; background:
+      radial-gradient(60% 70% at 72% 38%, rgba(201,168,106,.38), transparent 70%),
+      radial-gradient(40% 50% at 82% 70%, rgba(180,98,30,.30), transparent 70%),
+      radial-gradient(70% 60% at 10% 100%, rgba(255,255,255,.05), transparent 70%); }
+  .hero > .grain { position: absolute; inset: 0; }
+  .hero .in { position: relative; display: grid; gap: clamp(48px, 8vw, 120px); padding-block: 24px 40px; }
+  .nav { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .mark { font-weight: 700; font-size: 22px; letter-spacing: -0.03em; }
+  .nav .meta { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+  .hero-mid { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; }
+  .hero h1 { font-size: clamp(64px, 14vw, 200px); letter-spacing: -0.06em; line-height: .85; }
+  .hero h1 small { display: block; font-size: .36em; letter-spacing: -0.04em; margin-top: .2em; }
+  .hero .tags { display: flex; gap: 16px; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.75); flex-wrap: wrap; }
+  .hero-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; }
+  .hero-foot p { max-width: 34ch; color: rgba(255,255,255,.82); font-size: 15px; }
+  .for { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.75); text-align: right; }
+  .for b { display: block; color: var(--paper); font-weight: 500; font-size: 14px; letter-spacing: .04em; }
+
+  /* Mood strip */
+  .strip { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .mood { position: relative; aspect-ratio: 3 / 4; max-width: 100%; border-radius: 18px; overflow: hidden; display: flex; align-items: flex-end; padding: 16px; }
+  .mood span { position: relative; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.88); }
+  .mood::after { content: ""; position: absolute; inset: 0; background-image: inherit; }
+  .m1 { background: radial-gradient(55% 45% at 50% 35%, rgba(232,206,150,.75), transparent 70%), linear-gradient(180deg, #2a2418, #0d0c0a); }
+  .m2 { background: radial-gradient(50% 40% at 40% 55%, rgba(198,112,40,.8), transparent 70%), linear-gradient(180deg, #1b130c, #080706); }
+  .m3 { background: radial-gradient(60% 50% at 60% 30%, rgba(236,190,176,.7), transparent 70%), radial-gradient(30% 25% at 30% 70%, rgba(255,240,220,.35), transparent 70%), linear-gradient(180deg, #2b1f1c, #0e0b0a); }
+  .m4 { background: repeating-linear-gradient(90deg, rgba(255,255,255,.08) 0 2px, transparent 2px 48px), radial-gradient(60% 40% at 50% 20%, rgba(255,255,255,.35), transparent 70%), linear-gradient(180deg, #232426, #0b0b0c); }
+  .strip-note { margin-top: 16px; font-size: 12px; color: var(--mute-dark); }
+
+  /* Narrow column sections, Korda style offset */
+  .offset { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 3fr); gap: 24px; }
+  .offset > .col { grid-column: 2; display: grid; gap: 32px; min-width: 0; }
+  .statement { font-size: clamp(26px, 3.4vw, 44px); font-weight: 500; letter-spacing: -0.035em; line-height: 1.08; text-wrap: balance; }
+  .logic { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; border-top: 1px solid var(--line); padding-top: 24px; }
+  .logic div { display: grid; gap: 8px; align-content: start; min-width: 0; }
+  .logic b { font-weight: 500; font-size: 18px; letter-spacing: -0.02em; }
+  .logic p { color: #55524E; font-size: 15px; }
+
+  /* Rooms accordion */
+  .rooms { border-top: 1px solid var(--line); }
+  .room { border-bottom: 1px solid var(--line); }
+  .room summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 28px; }
+  .room summary::-webkit-details-marker { display: none; }
+  .room summary h3 { min-width: 0; }
+  .plus { flex: none; width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; color: var(--flame); font-size: 20px; transition: transform .25s ease; }
+  .room[open] .plus { transform: rotate(45deg); }
+  .room summary:focus-visible { outline: 2px solid var(--flame); outline-offset: 4px; border-radius: 8px; }
+  .room-body { display: grid; grid-template-columns: minmax(0, 1fr) 160px; gap: 32px; padding-bottom: 32px; }
+  .room-body > div { display: grid; gap: 20px; min-width: 0; }
+  .room-body p.desc { max-width: 58ch; color: #3E3B38; }
+  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+  .facts div { display: grid; gap: 4px; min-width: 0; }
+  .facts span { font-size: 15px; }
+  .thumb { aspect-ratio: 1 / 1; max-width: 100%; border-radius: 14px; }
+
+  /* Process */
+  .steps { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 12px; margin-top: 48px; }
+  .step { background: var(--panel-dark); border-radius: 18px; padding: 20px; display: grid; gap: 40px; align-content: space-between; min-width: 0; }
+  .step .n { font-size: 12px; letter-spacing: .08em; color: var(--flame); }
+  .step b { display: block; font-weight: 500; font-size: 20px; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .step p { color: var(--mute-dark); font-size: 14px; }
+
+  /* Tracker */
+  .table-wrap { overflow-x: auto; border-radius: 18px; background: var(--paper); border: 1px solid var(--line); }
+  table { width: 100%; border-collapse: collapse; min-width: 720px; font-size: 14px; font-variant-numeric: tabular-nums; }
+  th, td { text-align: left; padding: 16px 18px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 400; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
+  tr:last-child td { border-bottom: 0; }
+  td.k { font-weight: 500; }
+  .tag { display: inline-block; font-size: 12px; padding: 2px 10px; border-radius: 999px; background: var(--stone); color: #55524E; }
+
+  /* About */
+  .about { display: grid; grid-template-columns: 1fr minmax(0, 2.2fr) 1fr; gap: 24px; align-items: center; }
+  .about .side { display: grid; gap: 12px; }
+  .about .side .mood { aspect-ratio: 4 / 3; }
+  .about .copy { display: grid; gap: 24px; font-size: clamp(20px, 2.2vw, 26px); letter-spacing: -0.02em; line-height: 1.3; min-width: 0; }
+
+  /* Model */
+  .model { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .card { background: var(--stone); border-radius: 18px; padding: 24px; display: grid; gap: 12px; align-content: start; min-width: 0; }
+  .card b { font-weight: 500; font-size: 20px; letter-spacing: -0.02em; }
+  .card p { color: #55524E; font-size: 15px; }
+  .work { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .work .card { background: var(--paper); border: 1px dashed var(--line); }
+  .confirm { display: inline-block; background: #FFF1B8; color: #5E4A00; font-size: 12px; padding: 2px 8px; border-radius: 6px; }
+
+  /* CTA */
+  .cta { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 40px; align-items: start; }
+  .cta h2 { font-size: clamp(48px, 7vw, 104px); }
+  .next { display: grid; gap: 0; border-top: 1px solid var(--line-dark); }
+  .next > div { display: grid; grid-template-columns: 48px minmax(0, 1fr); gap: 12px; padding-block: 18px; border-bottom: 1px solid var(--line-dark); }
+  .next .n { color: var(--flame); font-size: 12px; letter-spacing: .08em; padding-top: 4px; }
+  .next b { font-weight: 500; font-size: 18px; display: block; }
+  .next p { color: var(--mute-dark); font-size: 14px; }
+  .sign { background: var(--panel-dark); border-radius: 18px; padding: 20px; display: grid; gap: 4px; }
+  .sign b { font-weight: 500; font-size: 22px; letter-spacing: -0.02em; }
+
+  footer { padding-block: 40px; }
+  footer .in { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--mute); }
+
+  @media (max-width: 900px) {
+    .offset { grid-template-columns: minmax(0, 1fr); }
+    .offset > .col { grid-column: 1; }
+    .strip { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .logic, .model, .work { grid-template-columns: minmax(0, 1fr); }
+    .steps { grid-template-columns: minmax(0, 1fr); }
+    .step { gap: 16px; }
+    .room-body { grid-template-columns: minmax(0, 1fr); }
+    .thumb { display: none; }
+    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .about { grid-template-columns: minmax(0, 1fr); }
+    .about .side { display: none; }
+    .cta { grid-template-columns: minmax(0, 1fr); }
+    .for { text-align: left; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<header class="hero">
+  <div class="grain"></div>
+  <div class="in">
+    <nav class="nav">
+      <div class="mark">m360<span class="dot">.</span></div>
+      <div class="meta">Proposal for MOËT HENNESSY India // November 2026</div>
+    </nav>
+    <div class="hero-mid">
+      <h1>THE ROOMS<small>PROGRAMME.</small></h1>
+      <div class="tags"><span>North &amp; East India</span><span>//</span><span>HoReCa + Modern Trade</span></div>
+    </div>
+    <div class="hero-foot">
+      <p>In India the bottle cannot be advertised, so the room does the selling. Four branded rooms, built inside your key accounts, that add listings, grow trade advocates and move sell out.</p>
+      <div class="for">Prepared for<b>Tarush Kaul</b>Customer Marketing Head, North &amp; East India</div>
+    </div>
+  </div>
+</header>
+
+<section class="dark band" style="padding-block: 48px 72px;">
+  <div class="in">
+    <div class="strip">
+      <div class="mood m1"><span>Signature Serve Room</span></div>
+      <div class="mood m2"><span>Masterclass Circuit</span></div>
+      <div class="mood m3"><span>Wedding Season</span></div>
+      <div class="mood m4"><span>Premium Shelf</span></div>
+    </div>
+    <p class="strip-note">Mood panels. Final looks follow brand guidelines for each house.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="in offset">
+    <div class="col">
+      <p class="label">The idea</p>
+      <p class="statement">Every key account becomes a room where MOËT &amp; CHANDON, CHANDON INDIA and GLENMORANGIE are tasted, talked about and listed. Mask360 designs, builds and runs each room, and reports back by account.</p>
+      <div class="logic">
+        <div><b>The room is the ad.</b><p>Direct liquor advertising is off the table in India. Tasting, people and places carry the brand, so that is where the spend works hardest.</p></div>
+        <div><b>Your accounts are the stage.</b><p>Luxury hotels, fine dining rooms, bars and modern trade outlets already hold your guests. Each room is built for one of them and repeats across the rest.</p></div>
+        <div><b>Every room reports.</b><p>Listings added, covers served and sell out during each activation window, tracked per account so each rupee maps back.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" style="padding-top: 0;">
+  <div class="in offset">
+    <div class="col">
+      <p class="label">The four rooms</p>
+      <div class="rooms">
+        <details class="room" open>
+          <summary><h3>Signature Serve Room</h3><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="room-body">
+            <div>
+              <p class="desc">A MOËT &amp; CHANDON evening inside a partner luxury hotel bar. Set design, a serve ritual, a curated guest list and creator capture. One format, built once and repeated across your key accounts in North and East India.</p>
+              <div class="facts">
+                <div><p class="label">House</p><span>MOËT &amp; CHANDON</span></div>
+                <div><p class="label">Where</p><span>Luxury hotel bars</span></div>
+                <div><p class="label">Job</p><span>Trial and new listings</span></div>
+                <div><p class="label">Tracked by</p><span>Listings added, covers</span></div>
+              </div>
+            </div>
+            <div class="thumb m1"></div>
+          </div>
+        </details>
+        <details class="room" open>
+          <summary><h3>GLENMORANGIE Masterclass Circuit</h3><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="room-body">
+            <div>
+              <p class="desc">A bartender advocacy series that moves across the top bars in your cities. Each session is filmed into short trade content your sales team can share with the next account.</p>
+              <div class="facts">
+                <div><p class="label">House</p><span>GLENMORANGIE</span></div>
+                <div><p class="label">Where</p><span>Top bars, fine dining</span></div>
+                <div><p class="label">Job</p><span>Trade advocacy</span></div>
+                <div><p class="label">Tracked by</p><span>Bartenders trained, menu adds</span></div>
+              </div>
+            </div>
+            <div class="thumb m2"></div>
+          </div>
+        </details>
+        <details class="room" open>
+          <summary><h3>CHANDON INDIA for the Wedding Season</h3><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="room-body">
+            <div>
+              <p class="desc">A sparkling bar and gifting kit for premium weddings and festive hampers, live from November to February. Planners and venues get a ready format, guests get the toast.</p>
+              <div class="facts">
+                <div><p class="label">House</p><span>CHANDON INDIA</span></div>
+                <div><p class="label">Where</p><span>Wedding venues, gifting</span></div>
+                <div><p class="label">Job</p><span>Festive volume</span></div>
+                <div><p class="label">Tracked by</p><span>Events served, kits sold</span></div>
+              </div>
+            </div>
+            <div class="thumb m3"></div>
+          </div>
+        </details>
+        <details class="room" open>
+          <summary><h3>The Premium Shelf</h3><span class="plus" aria-hidden="true">+</span></summary>
+          <div class="room-body">
+            <div>
+              <p class="desc">A designed display and tasting bay for modern trade outlets, built to Indian regulatory norms. The shelf carries the same look as the rooms, so the guest who tasted in the bar finds the bottle in store.</p>
+              <div class="facts">
+                <div><p class="label">House</p><span>All three</span></div>
+                <div><p class="label">Where</p><span>Modern trade outlets</span></div>
+                <div><p class="label">Job</p><span>Share of shelf, sell out</span></div>
+                <div><p class="label">Tracked by</p><span>Facings, sell out</span></div>
+              </div>
+            </div>
+            <div class="thumb m4"></div>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark band">
+  <div class="in">
+    <p class="label">How a room runs</p>
+    <h2 style="margin-top: 16px;">Five steps, one team<span class="dot">.</span></h2>
+    <div class="steps">
+      <div class="step"><span class="n">01</span><div><b>Pick the accounts</b><p>We shortlist the outlets with you and your sales team.</p></div></div>
+      <div class="step"><span class="n">02</span><div><b>Design the room</b><p>Global brand guidelines turned into a local format.</p></div></div>
+      <div class="step"><span class="n">03</span><div><b>Build and run</b><p>Production, staffing and guest list on the night.</p></div></div>
+      <div class="step"><span class="n">04</span><div><b>Capture</b><p>Creators and our crew film content for trade and social.</p></div></div>
+      <div class="step"><span class="n">05</span><div><b>Report</b><p>Results by account after every activation.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="stone band">
+  <div class="in offset">
+    <div class="col">
+      <p class="label">What you see after each room</p>
+      <h2>One tracker<span class="dot">.</span></h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Room</th><th>Account</th><th>Listings added</th><th>Covers served</th><th>Sell out in window</th><th>Content pieces</th></tr></thead>
+          <tbody>
+            <tr><td class="k">Signature Serve Room</td><td>Luxury hotel bar</td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td></tr>
+            <tr><td class="k">Masterclass Circuit</td><td>Top bars</td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td></tr>
+            <tr><td class="k">Wedding Season</td><td>Venues, gifting</td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td></tr>
+            <tr><td class="k">Premium Shelf</td><td>Modern trade</td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td><td><span class="tag">Set with you</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="color:#55524E; font-size: 14px;">Targets are agreed with you before each room goes live, so the numbers match how your customer marketing budget is measured.</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark band">
+  <div class="in about">
+    <div class="side"><div class="mood m1"></div><div class="mood m3"></div></div>
+    <div class="copy">
+      <p class="label">About Mask360</p>
+      <p>Mask360 is a full service marketing and creative agency across India and UAE, working with legacy and new age brands.</p>
+      <p>Our experiential arm designs, builds and runs branded rooms for premium brands, from the first sketch to the report.</p>
+    </div>
+    <div class="side"><div class="mood m2"></div><div class="mood m4"></div></div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="in offset">
+    <div class="col">
+      <p class="label">Selected work</p>
+      <div class="work">
+        <div class="card"><b>Project one</b><p><span class="confirm">[confirm from Master Doc]</span></p></div>
+        <div class="card"><b>Project two</b><p><span class="confirm">[confirm from Master Doc]</span></p></div>
+        <div class="card"><b>Project three</b><p><span class="confirm">[confirm from Master Doc]</span></p></div>
+      </div>
+      <p class="label" style="margin-top: 32px;">How we work together</p>
+      <div class="model">
+        <div class="card"><b>Season retainer</b><p>One team runs all four rooms through the season, from planning to reporting.</p></div>
+        <div class="card"><b>Clear budget split</b><p>The agency fee sits below the working budget, so most of the spend goes into the rooms.</p></div>
+        <div class="card"><b>Compliance first</b><p>Every format is built within Indian regulatory norms and your global brand guidelines.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark band">
+  <div class="in cta">
+    <h2>Let's pick the first room<span class="dot">.</span></h2>
+    <div style="display:grid; gap: 24px; min-width: 0;">
+      <div class="next">
+        <div><span class="n">01</span><div><b>20 minute walkthrough</b><p>We take you through the four rooms and hear your account plan.</p></div></div>
+        <div><span class="n">02</span><div><b>Choose one account</b><p>You pick the outlet and the house for the first room.</p></div></div>
+        <div><span class="n">03</span><div><b>See the room</b><p>We come back with the room design, timeline and budget.</p></div></div>
+      </div>
+      <div class="sign"><p class="label">Prepared by</p><b>Prarthana Jetly</b><p style="color: var(--mute-dark); font-size: 14px;">Junior Strategist, Mask360</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="dark">
+  <div class="in"><span>m360<span class="dot">.</span></span><span>India // UAE</span><span>Confidential. Prepared for MOËT HENNESSY India.</span></div>
+</footer>
